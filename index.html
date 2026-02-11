@@ -82,6 +82,38 @@
       font-weight: 500;
     }
 
+    .mobile-warning {
+      background: linear-gradient(135deg, #ff6b54 0%, #ff8566 100%);
+      border: 2px solid #ff5239;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .mobile-warning::before {
+      content: "⚠️";
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .mobile-warning strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .mobile-warning span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+
     .input-group {
       margin-bottom: 25px;
     }
@@ -487,6 +519,13 @@
             <div class="header-icon">🔗</div>
             <h1>Review Link Generator</h1>
             <p>Convert Flipkart product links to review pages instantly</p>
+          </div>
+
+          <div class="mobile-warning">
+            <div>
+              <strong>Generated Link - Desktop/Laptop Only</strong>
+              <span>The review links generated here will only work on desktop or laptop browsers. Opening on mobile will not function properly.</span>
+            </div>
           </div>
 
           <div class="input-group">
