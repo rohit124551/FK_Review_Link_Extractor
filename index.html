@@ -317,6 +317,13 @@
       return;
     }
 
+    // ✅ CHECK FOR REQUIRED PARAMETERS (pid and lid)
+    if (!inputUrl.includes("pid=") || !inputUrl.includes("lid=")) {
+      result.innerHTML = "<b>❌ Error</b> Link must contain both 'pid' and 'lid' parameters";
+      result.classList.add("error", "show");
+      return;
+    }
+
     loading.style.display = "block";
 
     processLink(inputUrl, result, loading);

@@ -5,7 +5,7 @@ Convert Flipkart product links to review links instantly with a beautiful UI and
 ## Features
 
 ✨ **Modern UI** - Clean, responsive design with gradient backgrounds  
-🔐 **URL Validation** - Only accepts links starting with `https://www.flipkart.com/`  
+🔐 **URL Validation** - Only accepts full product links with `pid` and `lid` parameters  
 📋 **Local History** - Saves generated links in browser storage  
 ⚡ **Netlify Serverless** - Backend API runs on Netlify Functions  
 🚀 **One-Click Deploy** - Ready for Netlify deployment
@@ -53,11 +53,13 @@ netlify deploy
 
 ## How It Works
 
-1. **Frontend**: User pastes a Flipkart link in the input field
-2. **Validation**: Checks if it's a valid Flipkart URL
-3. **Short Link Resolution** (if needed): Uses Netlify Function to resolve `dl.flipkart.com` short links
-4. **URL Conversion**: Converts product URL to review URL
-5. **History**: Saves the generated link locally in browser
+1. **Input Validation**: User pastes a Flipkart link
+   - Must start with `https://www.flipkart.com/`
+   - Must contain `pid` (product ID) parameter
+   - Must contain `lid` (listing ID) parameter
+2. **URL Conversion**: Converts product URL to review URL by replacing `/p/` with `/product-reviews/`
+3. **Query Parameters**: Adds parameters for reviews: `aid=overall&certifiedBuyer=false&sortOrder=MOST_RECENT`
+4. **History**: Saves the generated link locally in browser
 
 ## API Endpoint
 
