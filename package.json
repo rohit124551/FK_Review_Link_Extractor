@@ -1,0 +1,20 @@
+{
+  "name": "fk-review-link-extractor",
+  "version": "1.0.0",
+  "description": "Flipkart Review Link Generator with Netlify Backend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Build complete'"
+  },
+  "keywords": [
+    "flipkart",
+    "review",
+    "link-generator"
+  ],
+  "author": "Rohit",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^latest"
+  }
+}

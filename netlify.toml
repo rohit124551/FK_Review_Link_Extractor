@@ -1,0 +1,12 @@
+[build]
+  command = "echo 'No build needed'"
+  functions = "netlify/functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/resolve"
+  to = "/.netlify/functions/resolve"
+  status = 200

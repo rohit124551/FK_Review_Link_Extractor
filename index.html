@@ -333,7 +333,7 @@
 
       // ✅ If short link → resolve using backend
       if (inputUrl.includes("dl.flipkart.com")) {
-        let res = await fetch(`/api/resolve?url=${encodeURIComponent(inputUrl)}`);
+        let res = await fetch(`/.netlify/functions/resolve?url=${encodeURIComponent(inputUrl)}`);
         let data = await res.json();
 
         if (!data.finalUrl) {
