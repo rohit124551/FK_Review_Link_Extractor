@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Reviews</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f6f7fb;--card:#ffffff;--muted:#6b7280;--accent:#0b63ff}
+    *{box-sizing:border-box}
+    body{font-family:Roboto,system-ui,Arial,sans-serif;background:var(--bg);margin:0;color:#111}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .title{display:flex;flex-direction:column}
+    .title h1{margin:0;font-size:20px}
+    .title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .search{padding:10px 12px;border-radius:8px;border:1px solid #e6e9ef;background:#fff;min-width:220px}
+    .products{margin-top:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .card{background:var(--card);border-radius:10px;padding:14px;border:1px solid #eceef3;box-shadow:0 1px 2px rgba(16,24,40,0.03);display:flex;flex-direction:column;gap:8px}
+    .card .heading{font-weight:500;color:#0f172a}
+    .meta{font-size:13px;color:var(--muted)}
+    .btn{display:inline-block;padding:8px 10px;background:transparent;border:1px solid var(--accent);color:var(--accent);border-radius:8px;text-decoration:none;font-weight:500}
+    .btn:hover{background:var(--accent);color:#fff}
+    .link-row{display:flex;flex-direction:row;align-items:center;gap:8px;flex-wrap:wrap}
+    .spinner{height:36px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    @media (max-width:520px){.controls{flex-direction:column;align-items:stretch}.search{width:100%}}
+    /* Table / row animations and column color bands */
+    #productsTable{border-radius:8px;overflow:hidden}
+    #products tr{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease;animation:fadeIn .28s ease forwards;transform:translateY(8px);opacity:0}
+    #products tr:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(16,24,40,0.06)}
+    #products tr:nth-child(even):hover{background:rgba(37,99,235,0.04)}
+    #products td{vertical-align:top}
+    /* subtle per-column tint */
+    #products td:nth-child(1){background:transparent}
+    #products td:nth-child(2){background:rgba(245,247,255,0.65)}
+    #products td:nth-child(3){background:rgba(252,250,245,0.65)}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Product Reviews</h1>
+        <p>Browse products and open review links — searchable and responsive.</p>
+      </div>
+      <div class="controls"></div>
+    </header>
+
+    <div class="notice" style="margin-top:12px;padding:10px 12px;border-radius:8px;background:linear-gradient(90deg,#eef6ff,#f8fbff);border:1px solid #e1efff;color:#0446b0;font-size:14px">
+      <strong>Note:</strong> Review links work on both mobile and desktop browsers.
+    </div>
+
+    <section class="tutorial" style="margin-top:18px;background:linear-gradient(180deg,#ffffff,#fbfdff);padding:14px;border-radius:10px;border:1px solid #eef3ff">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>Tutorial:</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:4px">Watch the quick walkthrough below. File shown as <em>zarahatke.mp4</em>.</div>
+        </div>
+        <div style="font-size:13px;color:var(--muted)"><a href="FK%20Rev.mp4" download="zarahatke.mp4" class="btn">Download tutorial (zarahatke.mp4)</a></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <video controls style="width:100%;border-radius:8px;background:#000">
+          <source src="FK%20Rev.mp4" type="video/mp4">
+          Your browser does not support the video tag. You can <a href="FK%20Rev.mp4">download the tutorial</a>.
+        </video>
+      </div>
+    </section>
+
+    <div style="margin-top:12px">
+      <input id="search" class="search" placeholder="Search by name or code..." aria-label="Search products">
+    </div>
+
+    <section class="products">
+      <div id="status" class="spinner">Loading products…</div>
+
+      <div style="overflow:auto;margin-top:12px">
+        <table id="productsTable" style="width:100%;border-collapse:collapse;background:transparent">
+          <thead>
+            <tr style="text-align:left;color:var(--muted);font-size:13px">
+              <th style="padding:8px 10px;min-width:36px">#</th>
+              <th style="padding:8px 10px">Code</th>
+              <th style="padding:8px 10px;min-width:420px">Product (name + review link)</th>
+            </tr>
+          </thead>
+          <tbody id="products" aria-live="polite"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  const apiURL = "https://script.google.com/macros/s/AKfycbwGNb85O4A-d1dTNm9bDSFWbK2gWwJWeVIOCnp_o7-Sobn38PyDX3mFZ0k1dDqwpCZ1/exec";
+  let allData = [];
+
+  function render(items){
+    const container = document.getElementById('products');
+    const status = document.getElementById('status');
+    if(!items || items.length === 0){
+      container.innerHTML = '';
+      status.textContent = 'No products found';
+      return;
+    }
+
+    status.textContent = '';
+      const rows = items.map((item, i) => {
+      const code = escapeHtml(item.product_code || '');
+      const name = escapeHtml(item.product_name || '');
+      const link = item.review_link || '';
+      return `
+        <tr style="border-top:1px solid #eef2f6;animation-delay:${i*60}ms">
+          <td style="padding:10px">${i+1}</td>
+          <td style="padding:10px">${code}</td>
+          <td style="padding:10px">
+            <div style="font-weight:500">${name}</div>
+            <div style="margin-top:8px" class="link-row"><a class="btn" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link)}</a></div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    container.innerHTML = rows;
+    
+  }
+
+  function escapeHtml(text){
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function applyFilter(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q){ render(allData); return; }
+    const filtered = allData.filter(item => {
+      const name = (item.product_name||'').toLowerCase();
+      const code = (item.product_code||'').toLowerCase();
+      return name.includes(q) || code.includes(q);
+    });
+    render(filtered);
+  }
+
+  
+
+  document.getElementById('search').addEventListener('input', (e) => applyFilter(e.target.value));
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(data => {
+      allData = Array.isArray(data) ? data : [];
+      render(allData);
+    })
+    .catch(err => {
+      document.getElementById('status').textContent = 'Error loading data';
+      console.error(err);
+    });
+  </script>
+
+</body>
+</html>
