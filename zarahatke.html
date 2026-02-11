@@ -160,6 +160,38 @@
       document.getElementById('status').textContent = 'Error loading data';
       console.error(err);
     });
+
+  // Silent background refresh: re-fetch API every 2 minutes and update table without showing loading UI
+  setInterval(() => {
+    fetch(apiURL)
+      .then(response => response.json())
+      .then(data => {
+        const newData = Array.isArray(data) ? data : [];
+        try{
+          // simple deep-equality check via JSON stringify; replace if changed
+          if (JSON.stringify(newData) !== JSON.stringify(allData)) {
+            allData = newData;
+            render(allData);
+            // subtle flash to indicate background update
+            try{
+              const table = document.getElementById('productsTable');
+              table.animate([
+                { boxShadow: '0 0 0 rgba(11,99,255,0)' },
+                { boxShadow: '0 8px 30px rgba(11,99,255,0.04)' },
+                { boxShadow: '0 0 0 rgba(11,99,255,0)' }
+              ], { duration: 550, easing: 'ease-out' });
+            }catch(e){/* ignore animation errors */}
+          }
+        }catch(e){
+          // fallback: always replace
+          allData = newData;
+          render(allData);
+        }
+      })
+      .catch(() => {
+        // silent: don't change UI or show errors for background refresh
+      });
+  }, 180000); // 180000 ms = 3 minutes
   </script>
 
 </body>
