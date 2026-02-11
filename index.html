@@ -310,14 +310,9 @@
       return;
     }
 
-    // ✅ DOMAIN RESTRICTION (ONLY FLIPKART)
-    if (
-      !inputUrl.startsWith("https://www.flipkart.com") &&
-      !inputUrl.startsWith("http://www.flipkart.com") &&
-      !inputUrl.startsWith("https://dl.flipkart.com") &&
-      !inputUrl.startsWith("http://dl.flipkart.com")
-    ) {
-      result.innerHTML = "<b>❌ Error</b> Only Flipkart links are allowed";
+    // ✅ DOMAIN RESTRICTION (ONLY HTTPS FLIPKART LINKS)
+    if (!inputUrl.startsWith("https://www.flipkart.com/")) {
+      result.innerHTML = "<b>❌ Error</b> Only links starting with https://www.flipkart.com/ are allowed";
       result.classList.add("error", "show");
       return;
     }
@@ -330,21 +325,6 @@
   async function processLink(inputUrl, result, loading) {
     try {
       let finalProductUrl = inputUrl;
-
-      // ✅ If short link → resolve using backend
-      if (inputUrl.includes("dl.flipkart.com")) {
-        let res = await fetch(`/.netlify/functions/resolve?url=${encodeURIComponent(inputUrl)}`);
-        let data = await res.json();
-
-        if (!data.finalUrl) {
-          result.innerHTML = "<b>❌ Error</b> Failed to resolve short link";
-          result.classList.add("error", "show");
-          loading.style.display = "none";
-          return;
-        }
-
-        finalProductUrl = data.finalUrl;
-      }
 
       // ✅ Convert product URL → review URL
       finalProductUrl = finalProductUrl.replace("/p/", "/product-reviews/");
