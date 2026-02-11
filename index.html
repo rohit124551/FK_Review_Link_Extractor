@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart Review Link Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      margin-bottom: 30px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    input[type="text"]::placeholder {
+      color: #999;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #result {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      min-height: 60px;
+      border-left: 4px solid #667eea;
+      display: none;
+    }
+
+    #result.show {
+      display: block;
+    }
+
+    #result b {
+      color: #333;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    #result a {
+      color: #667eea;
+      text-decoration: none;
+      word-break: break-all;
+      transition: color 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    #result a:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+
+    .error {
+      color: #e74c3c;
+      background: #fadbd8 !important;
+      border-left-color: #e74c3c !important;
+    }
+
+    .success {
+      color: #27ae60;
+      background: #d5f4e6 !important;
+      border-left-color: #27ae60 !important;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: #667eea;
+      font-size: 14px;
+    }
+
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* History Section */
+    .history-container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .history-header h2 {
+      color: #333;
+      font-size: 20px;
+    }
+
+    .clear-btn {
+      background: #e74c3c;
+      padding: 8px 16px;
+      font-size: 12px;
+      width: auto;
+      margin: 0;
+    }
+
+    .clear-btn:hover {
+      background: #c0392b;
+    }
+
+    #historyList {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .history-item {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .history-item:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-color: #667eea;
+    }
+
+    .history-time {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .history-link {
+      color: #667eea;
+      text-decoration: none;
+      word-break: break-all;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .history-link:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+
+    .delete-history {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .delete-history:hover {
+      background: #c0392b;
+    }
+
+    .empty-history {
+      text-align: center;
+      color: #999;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>🔗 Flipkart Review Link</h1>
+        <p>Generate review links instantly</p>
+      </div>
+
+      <div class="input-group">
+        <input 
+          id="urlInput" 
+          type="text"
+          placeholder="Paste your Flipkart product link here..." 
+          onkeypress="if(event.key === 'Enter') generate()"
+        />
+      </div>
+      
+      <button onclick="generate()">Generate Review Link</button>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        Processing...
+      </div>
+
+      <div id="result"></div>
+    </div>
+
+    <div class="history-container">
+      <div class="history-header">
+        <h2>📋 History</h2>
+        <button class="clear-btn" onclick="clearAllHistory()">Clear All</button>
+      </div>
+      <div id="historyList" class="empty-history">No history yet</div>
+    </div>
+  </div>
+
+<script>
+  const HISTORY_KEY = 'fkReviewHistory';
+
+  function generate() {
+    let inputUrl = document.getElementById("urlInput").value.trim();
+    let result = document.getElementById("result");
+    let loading = document.getElementById("loading");
+
+    // Clear old result
+    result.innerHTML = "";
+    result.classList.remove("error", "success", "show");
+
+    if (!inputUrl) {
+      result.innerHTML = "<b>⚠️ Error</b> Please enter a URL";
+      result.classList.add("error", "show");
+      return;
+    }
+
+    // ✅ DOMAIN RESTRICTION (ONLY FLIPKART)
+    if (
+      !inputUrl.startsWith("https://www.flipkart.com") &&
+      !inputUrl.startsWith("http://www.flipkart.com") &&
+      !inputUrl.startsWith("https://dl.flipkart.com") &&
+      !inputUrl.startsWith("http://dl.flipkart.com")
+    ) {
+      result.innerHTML = "<b>❌ Error</b> Only Flipkart links are allowed";
+      result.classList.add("error", "show");
+      return;
+    }
+
+    loading.style.display = "block";
+
+    processLink(inputUrl, result, loading);
+  }
+
+  async function processLink(inputUrl, result, loading) {
+    try {
+      let finalProductUrl = inputUrl;
+
+      // ✅ If short link → resolve using backend
+      if (inputUrl.includes("dl.flipkart.com")) {
+        let res = await fetch(`/api/resolve?url=${encodeURIComponent(inputUrl)}`);
+        let data = await res.json();
+
+        if (!data.finalUrl) {
+          result.innerHTML = "<b>❌ Error</b> Failed to resolve short link";
+          result.classList.add("error", "show");
+          loading.style.display = "none";
+          return;
+        }
+
+        finalProductUrl = data.finalUrl;
+      }
+
+      // ✅ Convert product URL → review URL
+      finalProductUrl = finalProductUrl.replace("/p/", "/product-reviews/");
+
+      let parts = finalProductUrl.split("&");
+      let base = parts[0] + "&" + parts[1];
+
+      let reviewUrl = base + "&aid=overall&certifiedBuyer=false&sortOrder=MOST_RECENT";
+
+      result.innerHTML = `<b>✅ Success</b><br>
+      <a href="${reviewUrl}" target="_blank">${reviewUrl}</a>`;
+      result.classList.add("success", "show");
+
+      // Save to history
+      saveToHistory(reviewUrl);
+      loadHistory();
+
+    } catch (error) {
+      result.innerHTML = "<b>❌ Error</b> Something went wrong. Please try again.";
+      result.classList.add("error", "show");
+    }
+
+    loading.style.display = "none";
+  }
+
+  function saveToHistory(reviewUrl) {
+    let history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+    
+    // Add new entry at the beginning
+    history.unshift({
+      url: reviewUrl,
+      timestamp: new Date().getTime()
+    });
+
+    // Keep only last 20 items
+    if (history.length > 20) {
+      history = history.slice(0, 20);
+    }
+
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  }
+
+  function loadHistory() {
+    let history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+    let historyList = document.getElementById("historyList");
+
+    if (history.length === 0) {
+      historyList.innerHTML = '<div class="empty-history">No history yet</div>';
+      return;
+    }
+
+    historyList.innerHTML = history.map((item, index) => {
+      let date = new Date(item.timestamp);
+      let timeStr = date.toLocaleString();
+      return `
+        <div class="history-item">
+          <div class="history-time">${timeStr}</div>
+          <a href="${item.url}" target="_blank" class="history-link">${item.url}</a>
+          <button class="delete-history" onclick="deleteHistoryItem(${index})">Delete</button>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function deleteHistoryItem(index) {
+    let history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+    history.splice(index, 1);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    loadHistory();
+  }
+
+  function clearAllHistory() {
+    if (confirm("Are you sure you want to delete all history?")) {
+      localStorage.removeItem(HISTORY_KEY);
+      loadHistory();
+    }
+  }
+
+  // Load history on page load
+  window.addEventListener('load', loadHistory);
+</script>
+</body>
+</html>
