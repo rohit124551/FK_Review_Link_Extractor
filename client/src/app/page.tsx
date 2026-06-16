@@ -1336,7 +1336,7 @@ const Sidebar = memo(function Sidebar({
                 className="w-full bg-[#d97706] hover:bg-[#b45309] disabled:opacity-40 disabled:cursor-not-allowed text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-[#d97706]/20 active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 {loading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
-                Scan 8 Pages
+                Scan Reviews
               </button>
               <p className="text-[11px] text-[#d97706]/70 dark:text-[#d97706]/60 pl-1">Scans up to 8 pages of reviews</p>
             </div>
