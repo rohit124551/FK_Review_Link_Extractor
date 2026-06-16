@@ -750,6 +750,8 @@ export default function Home() {
               hasBeenFocused={hasBeenFocused}
               setHasBeenFocused={setHasBeenFocused}
               scanProgress={scanProgress}
+              reviews={reviews}
+              hasNextPage={hasNextPage}
             />
           </aside>
 
@@ -1203,6 +1205,8 @@ interface SidebarProps {
   hasBeenFocused: boolean;
   setHasBeenFocused: (v: boolean) => void;
   scanProgress: string | null;
+  reviews: any[];
+  hasNextPage: boolean;
 }
 
 const Sidebar = memo(function Sidebar({
@@ -1221,6 +1225,8 @@ const Sidebar = memo(function Sidebar({
   hasBeenFocused,
   setHasBeenFocused,
   scanProgress,
+  reviews,
+  hasNextPage,
 }: SidebarProps) {
   const sortOptions = [
     { value: 'MOST_RECENT', label: 'Recent' },
@@ -1359,7 +1365,8 @@ const Sidebar = memo(function Sidebar({
                 <span className="font-mono text-sm font-bold text-slate-700 dark:text-slate-200 tabular-nums">{page}</span>
                 <button 
                   onClick={() => setPage(page + 1)}
-                  className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-all text-sm font-semibold shadow-sm bg-white dark:bg-slate-800"
+                  disabled={reviews.length > 0 && !hasNextPage}
+                  className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white dark:hover:bg-slate-800 disabled:opacity-25 disabled:cursor-not-allowed transition-all text-sm font-semibold shadow-sm bg-white dark:bg-slate-800"
                 >
                   +
                 </button>
