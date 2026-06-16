@@ -1,18 +1,20 @@
-# ⭐ ReviewLens — Flipkart Review Extractor
+# ⭐ ReviewLens — Flipkart Review Link Extractor
 
-**ReviewLens** is a premium, full-stack web application that extracts, searches, and exports Flipkart product reviews. It transforms any Flipkart product or review page URL into structured, browsable review data — complete with star ratings, reviewer names, locations, verified buyer badges, and direct review permalinks.
+**ReviewLens** is a full-stack web application built to solve one specific problem: **extracting individual review links from Flipkart products**, which became impossible after Flipkart's recent UI update.
 
-> **In simple terms:** You paste a Flipkart product link → The app fetches all the reviews for that product → You can browse them, search for a specific reviewer by name, sort them, copy individual review links, and download them as CSV or JSON.
+> **The Problem:** Flipkart recently redesigned their product review pages. In the new UI, there is no way to right-click or copy the direct link to an individual review. The "Share" button was removed, permalink URLs are no longer visible in the browser, and the review section loads dynamically — making it impossible to grab a direct link to a specific review.
+>
+> **The Solution:** ReviewLens calls Flipkart's own internal API (the same one their website uses behind the scenes) to fetch the raw review data. It then reconstructs the **direct permalink URL** for every single review, which you can copy with one click. Along with the link, it also extracts the full review details — rating, reviewer name, review text, location, date, and more.
 
 ---
 
 ## 📖 Table of Contents
 
+- [Why This Project Exists](#-why-this-project-exists)
 - [What Does This Project Do?](#-what-does-this-project-do)
 - [Who Is This For?](#-who-is-this-for)
 - [How It Works (Step by Step)](#-how-it-works-step-by-step)
 - [Features](#-features)
-- [Screenshots](#-screenshots)
 - [Tech Stack](#️-tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
@@ -26,9 +28,42 @@
 
 ---
 
+## ❓ Why This Project Exists
+
+### The Problem: Flipkart's New UI Killed Review Links
+
+Before Flipkart's UI update, extracting a direct link to a specific review was simple — you could right-click on the review timestamp, copy the link, and share it. Some reviews even had a visible "Share" or "Permalink" option.
+
+**After the update, all of that is gone:**
+
+| What Changed | Before (Old UI) | After (New UI) |
+|---|---|---|
+| **Direct review URL** | Visible in the browser address bar when you clicked a review | No longer accessible — reviews load inside a dynamic overlay |
+| **Right-click → Copy link** | Worked on review timestamps and titles | No clickable links exist on individual reviews |
+| **Share button** | Available on some reviews | Completely removed |
+| **Review page structure** | Standard HTML pages with proper URLs | JavaScript-rendered dynamic content with no unique URLs |
+
+This means if you need a direct link to someone's review — for example, to report a fake review, to reference a review in a dispute, to share a helpful review with someone, or to document a customer's feedback — **you simply cannot get it from Flipkart's website anymore**.
+
+### The Solution: ReviewLens
+
+ReviewLens bypasses Flipkart's frontend entirely. Instead of relying on what's visible in the browser, it calls Flipkart's **internal API** (the same backend API that Flipkart's own website calls behind the scenes to load reviews). From the raw API response, ReviewLens:
+
+1. **Extracts every review** with its full data (rating, title, text, author, location, date, verified buyer status, helpfulness count).
+2. **Reconstructs the direct permalink URL** for each review — the same URL that Flipkart's old UI used to show but no longer does.
+3. **Lets you copy that link** with a single click.
+4. **Lets you search by reviewer name** across multiple pages — so you can find a specific person's review even if it's buried on page 5.
+5. **Lets you export everything** as CSV or JSON for offline use.
+
+---
+
 ## 🔍 What Does This Project Do?
 
-Flipkart does not provide a public API to access product reviews. ReviewLens works around this by using your authenticated Flipkart session cookies to call Flipkart's internal review API (the same one the Flipkart website itself uses). The application then parses the raw API response and presents the review data in a clean, searchable, and exportable interface.
+In simple terms:
+
+> You paste a Flipkart product link → ReviewLens fetches all the reviews for that product → You can browse them, search for a specific reviewer by name, sort them, **copy the direct link to any individual review**, and download the data as CSV or JSON.
+
+Flipkart does not provide a public API to access product reviews. ReviewLens uses your authenticated Flipkart session cookies to call Flipkart's internal review API (the same one their website uses behind the scenes). The application then parses the raw API response and presents the review data in a clean, searchable, and exportable interface — most importantly, with **clickable permalink URLs** that Flipkart's new UI no longer shows.
 
 ### What Data Does It Extract?
 
@@ -36,25 +71,27 @@ For each review, the app extracts and displays:
 
 | Field | Description |
 |---|---|
-| **Rating** | Star rating (1–5) with visual star display |
-| **Title** | Review headline written by the reviewer |
-| **Full Text** | Complete review body (expandable for long reviews) |
-| **Author Name** | Reviewer's display name |
-| **Location** | City and state of the reviewer |
-| **Date** | When the review was posted |
-| **Verified Buyer** | Whether the reviewer is a certified/verified buyer |
-| **Helpful Count** | Number of people who found the review helpful |
-| **Permalink** | Direct URL to the individual review on Flipkart |
-| **Product Attributes** | Color, storage, and other variant details (excluding size) |
+| ⭐ **Rating** | Star rating (1–5) with visual star display |
+| 📝 **Title** | Review headline written by the reviewer |
+| 💬 **Full Text** | Complete review body (expandable for long reviews) |
+| 👤 **Author Name** | Reviewer's display name |
+| 📍 **Location** | City and state of the reviewer |
+| 📅 **Date** | When the review was posted |
+| ✅ **Verified Buyer** | Whether the reviewer is a certified/verified buyer |
+| 👍 **Helpful Count** | Number of people who found the review helpful |
+| 🔗 **Permalink** | **Direct URL to the individual review on Flipkart** ← This is the main feature |
+| 🏷️ **Product Attributes** | Color, storage, and other variant details (excluding size) |
 
 ---
 
 ## 👥 Who Is This For?
 
-- **Sellers & Brands** — Monitor what customers are saying about your products on Flipkart.
-- **Market Researchers** — Collect and analyze review sentiment across products.
-- **Shoppers** — Quickly find what a specific reviewer said about a product, or export reviews for offline reading.
-- **Developers** — Use the extracted JSON data for further analysis, dashboards, or integrations.
+- **Anyone who needs a direct link to a Flipkart review** — The primary use case. If Flipkart's new UI is hiding the review link from you, this app gets it for you.
+- **Sellers & Brands** — Monitor customer feedback, track specific reviews, and get direct links to reviews you want to respond to or report.
+- **Buyers filing complaints** — Need to reference a specific fake or misleading review in a dispute? Get the exact link.
+- **Market Researchers** — Collect and analyze review sentiment across products with structured CSV/JSON exports.
+- **Quality Assurance Teams** — Track negative reviews and document them with direct links.
+- **Developers** — Use the extracted JSON data for further analysis, sentiment dashboards, or integrations.
 
 ---
 
