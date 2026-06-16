@@ -291,6 +291,8 @@ function normalizeFlipkartUrl(inputUrl: string): { cleanUrl: string; error?: str
   return { cleanUrl: cleaned };
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
+
 /* ═══════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════ */
@@ -424,7 +426,7 @@ export default function Home() {
         payload.mobile = bugMobile;
       }
 
-      const res = await fetch('/api/report-bug', {
+      const res = await fetch(`${API_BASE_URL}/api/report-bug`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -559,7 +561,7 @@ export default function Home() {
         for (let p = 1; p <= 8; p++) {
           setScanProgress(`Scanning page ${p} of 8…`);
           
-          const res = await fetch('/api/reviews', {
+          const res = await fetch(`${API_BASE_URL}/api/reviews`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ pageUri: cleanProductUrl, page: p, sortOrder })
@@ -610,7 +612,7 @@ export default function Home() {
       // Regular page fetch
       try {
         const activePage = pageOverride ?? page;
-        const res = await fetch('/api/reviews', {
+        const res = await fetch(`${API_BASE_URL}/api/reviews`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ pageUri: cleanProductUrl, page: activePage, sortOrder })
