@@ -30,7 +30,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
+          enableSystem={true}
+          storageKey="reviewlens-theme"
           disableTransitionOnChange
         >
           {children}
