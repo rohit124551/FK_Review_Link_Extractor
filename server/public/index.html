@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🛒 Flipkart Review Scraper</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0f1117;
+  --surface:   #1a1d2e;
+  --surface2:  #242740;
+  --surface3:  #2d3154;
+  --border:    #2d3154;
+  --accent:    #2172f0;
+  --accent2:   #00c2a8;
+  --warn:      #f59e0b;
+  --danger:    #ef4444;
+  --success:   #10b981;
+  --text:      #e8eaf0;
+  --muted:     #8892b0;
+  --radius:    12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.container { max-width: 920px; margin: 0 auto; padding: 24px 20px 60px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════════ */
+.header {
+  text-align: center;
+  padding: 36px 20px 28px;
+  background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+.header p  { color: var(--muted); font-size: 0.95rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════════════════════════ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 18px;
+}
+.card-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--accent2);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-subtitle {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORMS
+   ═══════════════════════════════════════════════════════════════ */
+label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+input, select, textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 13px;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: inherit;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(33,114,240,0.15);
+}
+textarea { resize: vertical; min-height: 70px; }
+select option { background: var(--surface2); }
+
+.form-group { margin-bottom: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.18s, transform 0.08s, background 0.18s;
+  font-family: inherit;
+  text-decoration: none;
+  user-select: none;
+}
+.btn:hover:not(:disabled) { opacity: 0.88; }
+.btn:active:not(:disabled) { transform: scale(0.98); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--accent);  color: white; }
+.btn-success { background: var(--success); color: white; }
+.btn-warn    { background: var(--warn);    color: #000; }
+.btn-ghost   { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+.btn-ghost:hover:not(:disabled) { color: var(--text); border-color: var(--accent); }
+.btn-sm      { padding: 7px 14px; font-size: 0.83rem; }
+.btn-row     { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SUB-SECTION
+   ═══════════════════════════════════════════════════════════════ */
+.sub-section {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-top: 14px;
+}
+.sub-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent2);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SORT PILLS
+   ═══════════════════════════════════════════════════════════════ */
+.sort-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.sort-pill {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: all 0.18s;
+  user-select: none;
+}
+.sort-pill:hover { border-color: var(--accent); color: var(--text); }
+.sort-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STATUS
+   ═══════════════════════════════════════════════════════════════ */
+.status {
+  padding: 11px 15px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  line-height: 1.4;
+}
+.status.info    { background: rgba(33,114,240,0.12); border: 1px solid rgba(33,114,240,0.3);  color: #7eb3ff; }
+.status.success { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3);  color: var(--success); }
+.status.error   { background: rgba(239,68,68,0.12);  border: 1px solid rgba(239,68,68,0.3);   color: var(--danger); }
+.status.warn    { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3);  color: var(--warn); }
+
+/* ═══════════════════════════════════════════════════════════════
+   PROGRESS
+   ═══════════════════════════════════════════════════════════════ */
+.progress-wrap { margin: 14px 0 0; }
+.progress-bar {
+  height: 6px;
+  background: var(--surface);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+.progress-label { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PRODUCT HEADER (shown after first fetch)
+   ═══════════════════════════════════════════════════════════════ */
+.product-header {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.product-header .label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.product-header .name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STATS
+   ═══════════════════════════════════════════════════════════════ */
+.stats-bar {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.stat-item {
+  flex: 1;
+  padding: 14px 10px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent2);
+  display: block;
+  line-height: 1.2;
+}
+.stat-lbl {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: block;
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REVIEW CARDS
+   ═══════════════════════════════════════════════════════════════ */
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  animation: fadeUp 0.25s ease;
+  transition: border-color 0.2s;
+}
+.review-card:hover { border-color: var(--surface3); }
+.review-card.highlight {
+  border-color: var(--accent2);
+  background: rgba(0,194,168,0.06);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rating-badge {
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+}
+.rating-badge.high { background: var(--success); }
+.rating-badge.mid  { background: var(--warn); color: #000; }
+.rating-badge.low  { background: var(--danger); }
+.stars { color: #fbbf24; font-size: 1rem; letter-spacing: 1px; }
+.certified-badge {
+  font-size: 0.75rem;
+  color: var(--success);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.page-tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--surface2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.review-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.review-text {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  align-items: center;
+}
+
+/* Highlighted Flipkart link button */
+.review-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(135deg, #2172f0, #00c2a8);
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none !important;
+  font-size: 0.78rem;
+  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 1px 4px rgba(33,114,240,0.25);
+}
+.review-link:hover  { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 3px 8px rgba(33,114,240,0.4); }
+.review-link:active { transform: scale(0.97); }
+
+.review-attrs {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.77rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.review-attrs b { color: var(--text); }
+
+mark {
+  background: rgba(0,194,168,0.3);
+  color: var(--accent2);
+  border-radius: 3px;
+  padding: 0 3px;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DOWNLOAD BAR
+   ═══════════════════════════════════════════════════════════════ */
+.download-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+.download-bar .label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COOKIE BOX
+   ═══════════════════════════════════════════════════════════════ */
+.cookie-box {
+  background: rgba(245,158,11,0.07);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.cookie-box summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--warn);
+  font-size: 0.92rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cookie-box summary::before { content: '▶'; font-size: 0.7rem; transition: transform 0.2s; }
+details[open] summary::before { transform: rotate(90deg); }
+.cookie-steps {
+  margin-top: 14px;
+  padding-left: 18px;
+  font-size: 0.87rem;
+  color: var(--muted);
+}
+.cookie-steps li { margin-bottom: 7px; }
+.cookie-steps code {
+  background: var(--surface2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--accent2);
+  font-size: 0.83rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPINNER
+   ═══════════════════════════════════════════════════════════════ */
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.hidden { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   EMPTY STATE
+   ═══════════════════════════════════════════════════════════════ */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+.empty-state p { font-size: 0.9rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGER
+   ═══════════════════════════════════════════════════════════════ */
+.pager {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.pager-info { color: var(--muted); font-size: 0.88rem; min-width: 150px; text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--surface3); }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<div class="header">
+  <h1>🛒 Flipkart Review Scraper</h1>
+  <p>Paste review link → browse by sort or search by reviewer name → export</p>
+</div>
+
+<div class="container">
+
+  <!-- ═══════ COOKIE SETUP ═══════ -->
+  <details class="cookie-box" id="cookieBox">
+    <summary>🍪 Cookie Setup (Required — click to expand)</summary>
+    <ol class="cookie-steps">
+      <li>Open <strong>Chrome / Edge</strong> → go to <strong>flipkart.com</strong> (stay logged in)</li>
+      <li>Press <code>F12</code> → <strong>Network</strong> tab → reload the page</li>
+      <li>Click the first request → <strong>Headers</strong> tab → find <code>Cookie:</code></li>
+      <li>Right-click on the value → <strong>Copy value</strong></li>
+      <li>Paste below and click <strong>Save Cookies</strong></li>
+      <li><em style="color:var(--warn)">Cookies expire in ~30 min. Refresh if reviews stop loading.</em></li>
+    </ol>
+    <div style="margin-top:14px;">
+      <textarea id="cookieInput" rows="3" placeholder="T=TI178...; K-ACTION=null; at=eyJhbGci..."></textarea>
+      <div class="btn-row" style="margin-top:10px;">
+        <button class="btn btn-warn" onclick="saveCookies()">💾 Save Cookies</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearCookies()">🗑 Clear</button>
+      </div>
+      <div id="cookieStatus"></div>
+    </div>
+  </details>
+
+  <!-- ═══════ STEP 1: URL ═══════ -->
+  <div class="card">
+    <div class="card-title">🔗 Step 1 — Paste Flipkart Review Link</div>
+    <div class="form-group">
+      <label>Review Page URL</label>
+      <input type="text" id="reviewUrl"
+        placeholder="https://www.flipkart.com/product-name/product-reviews/itmXXXXX?pid=..."
+        oninput="document.getElementById('step2').classList.add('hidden'); document.getElementById('resultsSection').classList.add('hidden');" />
+    </div>
+    <button class="btn btn-primary" onclick="proceedToStep2()">Continue</button>
+    <div id="urlStatus" style="margin-top: 10px;"></div>
+  </div>
+
+  <!-- ═══════ STEP 2: CHOOSE MODE ═══════ -->
+  <div class="card hidden" id="step2">
+    <div class="card-title">⚙️ Step 2 — Choose Sort Order</div>
+
+    <div class="sub-section">
+      <div class="form-group">
+        <label>Sort Order</label>
+        <div class="sort-pills">
+          <div class="sort-pill active" data-sort="MOST_RECENT"    onclick="setSortOrder(this)">🕐 Most Recent</div>
+          <div class="sort-pill"        data-sort="MOST_HELPFUL"   onclick="setSortOrder(this)">👍 Most Helpful</div>
+          <div class="sort-pill"        data-sort="POSITIVE_FIRST" onclick="setSortOrder(this)">⭐ Positive First</div>
+          <div class="sort-pill"        data-sort="NEGATIVE_FIRST" onclick="setSortOrder(this)">👎 Negative First</div>
+        </div>
+      </div>
+
+      <!-- Search by Name (Only visible if Most Recent is selected) -->
+      <div id="searchByNameContainer" style="margin-top: 15px; padding: 15px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 4px;">
+        <div class="sub-title" style="margin-bottom: 8px;">
+          🔍 Search by Reviewer Name
+          <span class="card-subtitle">(scans up to 8 pages in Most Recent order)</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="nameSearch"
+              placeholder="e.g. Rahul, Priya, Flipkart Customer..."
+              onkeydown="if(event.key==='Enter') searchByName()"/>
+          </div>
+          <div class="form-group" style="display: flex; gap: 10px; align-items: flex-end;">
+            <button class="btn btn-primary" onclick="searchByName()" id="nameSearchBtn">
+              <span class="spinner hidden" id="nameSpinner"></span>
+              Search
+            </button>
+            <button class="btn btn-ghost" onclick="clearNameSearch()">✕ Clear</button>
+          </div>
+        </div>
+        <div id="nameSearchStatus"></div>
+        <div class="progress-wrap hidden" id="nameProgress">
+          <div class="progress-bar"><div class="progress-fill" id="nameProgressFill"></div></div>
+          <div class="progress-label" id="nameProgressLabel">Scanning...</div>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top: 15px;">
+        <div class="form-group">
+          <label>Page Number</label>
+          <input type="number" id="pageNum" value="1" min="1" max="999"/>
+        </div>
+        <div class="form-group" style="display:flex;align-items:flex-end;">
+          <button class="btn btn-primary" onclick="loadPage()" id="loadBtn" style="width:100%;">
+            <span class="spinner hidden" id="loadSpinner"></span>
+            🔄 Load Page
+          </button>
+        </div>
+      </div>
+
+      <div id="loadStatus"></div>
+    </div>
+
+  </div><!-- /Step 2 -->
+
+  <!-- ═══════ RESULTS ═══════ -->
+  <div id="resultsSection" class="hidden">
+
+    <!-- Product header (shown only when productName found) -->
+    <div class="product-header hidden" id="productHeader">
+      <div class="label">📦 Product</div>
+      <div class="name" id="productNameDisplay"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-item"><span class="stat-val" id="statTotal">0</span><span class="stat-lbl">Reviews</span></div>
+      <div class="stat-item"><span class="stat-val" id="statAvg">—</span><span class="stat-lbl">Avg Rating</span></div>
+      <div class="stat-item"><span class="stat-val" id="statCert">0</span><span class="stat-lbl">Certified Buyers</span></div>
+      <div class="stat-item"><span class="stat-val" id="statContext">—</span><span class="stat-lbl">Context</span></div>
+    </div>
+
+    <!-- Download -->
+    <div class="download-bar">
+      <span class="label" id="downloadLabel">0 reviews ready</span>
+      <button class="btn btn-success btn-sm" onclick="download('json')">⬇ JSON</button>
+      <button class="btn btn-success btn-sm" onclick="download('csv')">⬇ CSV</button>
+      <button class="btn btn-success btn-sm" onclick="download('txt')">⬇ TXT</button>
+    </div>
+
+    <!-- Reviews -->
+    <div id="reviewList"></div>
+
+    <!-- Pager (only in sort mode) -->
+    <div class="pager hidden" id="pagerControls">
+      <button class="btn btn-ghost btn-sm" onclick="prevPage()" id="prevBtn">◀ Previous</button>
+      <span class="pager-info" id="pagerInfo">Page 1</span>
+      <button class="btn btn-primary btn-sm" onclick="nextPage()" id="nextBtn">Next ▶</button>
+    </div>
+
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   APP STATE
+   ═══════════════════════════════════════════════════════════════ */
+const S = {
+  sortOrder:    'MOST_RECENT',
+  currentPage:  1,
+  hasMorePages: false,
+  productName:  '',
+  reviews:      [],
+  mode:         'sort',     // 'sort' | 'namesearch'
+  searchName:   '',
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   INIT — check cookie status on load
+   ═══════════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const r = await fetch('/api/cookie-status').then(r => r.json());
+    if (r.saved) {
+      showMsg('cookieStatus',
+        `✅ Cookies loaded (${r.preview}) ${r.hasToken ? '' : '⚠ No at= token found'}`,
+        r.hasToken ? 'success' : 'warn');
+    }
+  } catch {}
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   COOKIES
+   ═══════════════════════════════════════════════════════════════ */
+async function saveCookies() {
+  const val = document.getElementById('cookieInput').value.trim();
+  if (val.length < 20) return showMsg('cookieStatus', '❌ Too short — paste full cookie string', 'error');
+
+  const r = await post('/api/save-cookies', { cookies: val });
+  if (r.ok) {
+    showMsg('cookieStatus', '✅ Cookies saved! Good for ~30 minutes.', 'success');
+    document.getElementById('cookieBox').removeAttribute('open');
+  } else {
+    showMsg('cookieStatus', '❌ ' + r.error, 'error');
+  }
+}
+
+function clearCookies() {
+  document.getElementById('cookieInput').value = '';
+  showMsg('cookieStatus', 'Cleared. Paste new cookies and save.', 'warn');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SORT ORDER PILLS
+   ═══════════════════════════════════════════════════════════════ */
+function setSortOrder(el) {
+  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  S.sortOrder = el.dataset.sort;
+
+  const searchContainer = document.getElementById('searchByNameContainer');
+  if (S.sortOrder === 'MOST_RECENT') {
+    searchContainer.classList.remove('hidden');
+  } else {
+    searchContainer.classList.add('hidden');
+  }
+}
+
+function proceedToStep2() {
+  const url = document.getElementById('reviewUrl').value.trim();
+  if (!url || !url.includes('flipkart.com')) {
+    showMsg('urlStatus', '❌ Please enter a valid Flipkart review URL', 'error');
+    return;
+  }
+  showMsg('urlStatus', '✅ URL looks good', 'success');
+  document.getElementById('step2').classList.remove('hidden');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LOAD PAGE (Sort Mode)
+   ═══════════════════════════════════════════════════════════════ */
+async function loadPage() {
+  const url = getReviewUrl();
+  if (!url) return;
+
+  const page = Math.max(1, parseInt(document.getElementById('pageNum').value) || 1);
+
+  setLoading('loadBtn', 'loadSpinner', true);
+  showMsg('loadStatus', `⏳ Fetching page ${page}...`, 'info');
+
+  const r = await post('/api/reviews', {
+    pageUri:   url,
+    page:      page,
+    sortOrder: S.sortOrder,
+  });
+
+  setLoading('loadBtn', 'loadSpinner', false);
+
+  if (r.error) {
+    return showMsg('loadStatus', '❌ ' + r.error + (r.hint ? ' — ' + r.hint : ''), 'error');
+  }
+
+  S.mode         = 'sort';
+  S.reviews      = r.reviews || [];
+  S.productName  = r.productName || '';
+  S.hasMorePages = r.hasMorePages || false;
+  S.currentPage  = page;
+  S.searchName   = '';
+
+  if (S.reviews.length === 0) {
+    showMsg('loadStatus',
+      `⚠ No reviews on page ${page}. You may have reached the end.`, 'warn');
+    renderResults([], `${prettySort(S.sortOrder)} • Page ${page}`);
+    showPager(true);
+    return;
+  }
+
+  showMsg('loadStatus',
+    `✅ Loaded ${S.reviews.length} reviews on page ${page}${S.hasMorePages ? ' • more pages available' : ' • last page'}`,
+    'success');
+
+  renderResults(S.reviews, `${prettySort(S.sortOrder)} • Page ${page}`);
+  showPager(true);
+}
+
+function nextPage() {
+  if (!S.hasMorePages) return;
+  document.getElementById('pageNum').value = S.currentPage + 1;
+  loadPage();
+}
+
+function prevPage() {
+  if (S.currentPage <= 1) return;
+  document.getElementById('pageNum').value = S.currentPage - 1;
+  loadPage();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEARCH BY REVIEWER NAME (server-side multi-page scan)
+   ═══════════════════════════════════════════════════════════════ */
+async function searchByName() {
+  const url  = getReviewUrl();
+  const name = document.getElementById('nameSearch').value.trim();
+  if (!url)  return;
+  if (!name) return showMsg('nameSearchStatus', '⚠ Enter a reviewer name', 'warn');
+
+  const maxScan = 8; // Fixed to 8 pages
+
+  S.searchName = name;
+  S.mode       = 'namesearch';
+  setLoading('nameSearchBtn', 'nameSpinner', true);
+
+  // Animated indeterminate progress (server does the scanning)
+  showProgress(true, 0, maxScan, 0);
+  document.getElementById('nameProgressLabel').textContent = `Scanning up to ${maxScan} page(s) on server...`;
+  animateIndeterminate(true);
+
+  showMsg('nameSearchStatus', '', 'info');
+
+  const r = await post('/api/search-by-name', {
+    pageUri:   url,
+    name:      name,
+    maxPages:  maxScan,
+    sortOrder: 'MOST_RECENT',
+  });
+
+  animateIndeterminate(false);
+  showProgress(false);
+  setLoading('nameSearchBtn', 'nameSpinner', false);
+
+  if (r.error) {
+    return showMsg('nameSearchStatus', '❌ ' + r.error, 'error');
+  }
+
+  S.reviews     = r.reviews || [];
+  S.productName = r.productName || '';
+  showPager(false);
+
+  if (S.reviews.length === 0) {
+    showMsg('nameSearchStatus',
+      `No reviews by "${name}" found in ${r.pagesScanned} page(s) scanned`, 'warn');
+    renderResults([], `Search: "${name}" — 0 matches`);
+  } else {
+    showMsg('nameSearchStatus',
+      `✅ Found ${S.reviews.length} review(s) by "${name}" — scanned ${r.pagesScanned} page(s)`,
+      'success');
+    renderResults(S.reviews, `Search: "${name}" — ${S.reviews.length} match(es)`, name);
+  }
+}
+
+function clearNameSearch() {
+  document.getElementById('nameSearch').value = '';
+  document.getElementById('nameSearchStatus').innerHTML = '';
+  showProgress(false);
+  S.searchName = '';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER RESULTS
+   ═══════════════════════════════════════════════════════════════ */
+function renderResults(reviews, context, highlightName = '') {
+  document.getElementById('resultsSection').classList.remove('hidden');
+
+  // Product header
+  const phEl = document.getElementById('productHeader');
+  if (S.productName) {
+    phEl.classList.remove('hidden');
+    document.getElementById('productNameDisplay').textContent = S.productName;
+  } else {
+    phEl.classList.add('hidden');
+  }
+
+  // Stats
+  const avg = reviews.length
+    ? (reviews.reduce((s, r) => s + (parseFloat(r.rating) || 0), 0) / reviews.length).toFixed(1)
+    : '—';
+  const cert = reviews.filter(r => r.certifiedBuyer).length;
+
+  document.getElementById('statTotal').textContent     = reviews.length;
+  document.getElementById('statAvg').textContent       = reviews.length ? avg + '⭐' : '—';
+  document.getElementById('statCert').textContent      = cert;
+  document.getElementById('statContext').textContent   = context;
+  document.getElementById('downloadLabel').textContent = `${reviews.length} review(s) ready to download`;
+
+  // Review list
+  const list = document.getElementById('reviewList');
+
+  if (!reviews.length) {
+    list.innerHTML = `
+      <div class="empty-state">
+        <div class="icon">🔍</div>
+        <p>No reviews found</p>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = reviews.map(r => {
+    const rating  = parseFloat(r.rating) || 0;
+    const rClass  = rating >= 4 ? 'high' : rating >= 3 ? 'mid' : 'low';
+    const stars   = '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
+    const isMatch = highlightName && r.author &&
+                    r.author.toLowerCase().includes(highlightName.toLowerCase());
+
+    const authorDisplay = highlightName && r.author
+      ? highlightText(esc(r.author), highlightName)
+      : esc(r.author || 'Anonymous');
+
+    const attrs = Object.entries(r.attributes || {});
+
+    return `
+    <div class="review-card ${isMatch ? 'highlight' : ''}">
+      <div class="review-top">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="rating-badge ${rClass}">${rating}/5</span>
+          <span class="stars">${stars}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          ${r.certifiedBuyer ? '<span class="certified-badge">✔ Certified Buyer</span>' : ''}
+          ${r._foundOnPage ? `<span class="page-tag">page ${r._foundOnPage}</span>` : ''}
+        </div>
+      </div>
+
+      ${r.title ? `<div class="review-title">${esc(r.title)}</div>` : ''}
+      <div class="review-text">${esc(r.text || '(no text)')}</div>
+
+      <div class="review-meta">
+        <span>👤 ${authorDisplay}</span>
+        ${r.location     ? `<span>📍 ${esc(r.location)}</span>`           : ''}
+        ${r.created      ? `<span>📅 ${esc(r.created)}</span>`            : ''}
+        ${r.helpfulCount ? `<span>👍 ${r.helpfulCount} helpful</span>`    : ''}
+        ${r.permalink
+          ? `<a href="${esc(r.permalink)}" target="_blank" class="review-link">🔗 Flipkart Review Link</a>`
+          : ''}
+      </div>
+
+      ${attrs.length
+        ? `<div class="review-attrs">
+            ${attrs.map(([k,v]) => `<span>📌 ${esc(k)}: <b>${esc(v)}</b></span>`).join('')}
+           </div>`
+        : ''}
+    </div>`;
+  }).join('');
+}
+
+function highlightText(html, needle) {
+  const safe = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return html.replace(new RegExp('(' + safe + ')', 'gi'), '<mark>$1</mark>');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGER
+   ═══════════════════════════════════════════════════════════════ */
+function showPager(show) {
+  const el = document.getElementById('pagerControls');
+  el.classList.toggle('hidden', !show);
+  if (show) {
+    document.getElementById('pagerInfo').textContent =
+      `Page ${S.currentPage}${S.hasMorePages ? ' (more available)' : ' (last page)'}`;
+    document.getElementById('prevBtn').disabled = S.currentPage <= 1;
+    document.getElementById('nextBtn').disabled = !S.hasMorePages;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DOWNLOAD
+   ═══════════════════════════════════════════════════════════════ */
+function download(fmt) {
+  if (!S.reviews.length) return alert('No reviews to download');
+
+  const slug = (S.productName || 'flipkart')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 40);
+
+  const suffix = S.searchName
+    ? `_search_${S.searchName.replace(/\s+/g,'_')}`
+    : `_${S.sortOrder.toLowerCase()}_p${S.currentPage}`;
+
+  let content, mime, filename;
+
+  if (fmt === 'json') {
+    content  = JSON.stringify({
+      productName: S.productName,
+      context:     S.searchName ? `search:${S.searchName}` : `${S.sortOrder}_page${S.currentPage}`,
+      count:       S.reviews.length,
+      reviews:     S.reviews,
+    }, null, 2);
+    mime     = 'application/json';
+    filename = `${slug}${suffix}_reviews.json`;
+
+  } else if (fmt === 'csv') {
+    const keys = ['id','title','text','rating','author','certifiedBuyer','created','location','helpfulCount','permalink','_foundOnPage'];
+    content  = [keys.join(','),
+      ...S.reviews.map(r => keys.map(k => JSON.stringify(r[k] ?? '')).join(','))
+    ].join('\n');
+    mime     = 'text/csv';
+    filename = `${slug}${suffix}_reviews.csv`;
+
+  } else {
+    content = [
+      `PRODUCT: ${S.productName}`,
+      `CONTEXT: ${S.searchName ? 'Search "' + S.searchName + '"' : S.sortOrder + ' (page ' + S.currentPage + ')'}`,
+      `TOTAL:   ${S.reviews.length} reviews`,
+      '',
+      ...S.reviews.map(r => [
+        '='.repeat(60),
+        `Title  : ${r.title || ''}`,
+        `Rating : ${r.rating || ''} / 5`,
+        `Author : ${[r.author, r.location, r.created].filter(Boolean).join(' | ')}`,
+        `Review : ${r.text || ''}`,
+        `Link   : ${r.permalink || ''}`,
+        '',
+      ].join('\n')),
+    ].join('\n');
+    mime     = 'text/plain';
+    filename = `${slug}${suffix}_reviews.txt`;
+  }
+
+  const blob = new Blob([content], { type: mime });
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(blob), download: filename,
+  });
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HELPERS
+   ═══════════════════════════════════════════════════════════════ */
+function getReviewUrl() {
+  let url = document.getElementById('reviewUrl').value.trim();
+  if (!url) {
+    showMsg('urlStatus', '⚠ Paste a Flipkart review URL first', 'warn');
+    return null;
+  }
+  url = url.replace('/p/', '/product-reviews/');
+  if (!url.includes('flipkart.com')) {
+    showMsg('urlStatus', '❌ Not a valid Flipkart URL', 'error');
+    return null;
+  }
+  document.getElementById('urlStatus').innerHTML = '';
+  try {
+    const p = new URL(url);
+    return p.pathname + p.search;
+  } catch {
+    return url;
+  }
+}
+
+async function post(path, body) {
+  try {
+    const r = await fetch(path, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(body),
+    });
+    return r.json();
+  } catch (e) {
+    return { error: e.message };
+  }
+}
+
+function setLoading(btnId, spinnerId, on) {
+  document.getElementById(btnId).disabled = on;
+  document.getElementById(spinnerId).classList.toggle('hidden', !on);
+}
+
+function showProgress(show, page = 0, total = 8, found = 0) {
+  const wrap = document.getElementById('nameProgress');
+  wrap.classList.toggle('hidden', !show);
+  if (show && page > 0) {
+    const pct = total > 0 ? Math.round((page - 1) / total * 100) : 0;
+    document.getElementById('nameProgressFill').style.width = pct + '%';
+    document.getElementById('nameProgressLabel').textContent =
+      `Scanning page ${page} of ${total} — ${found} match(es) found`;
+  }
+}
+
+/* Animated bar while waiting for server-side scan */
+let _indeterminateTimer = null;
+function animateIndeterminate(on) {
+  const fill = document.getElementById('nameProgressFill');
+  if (_indeterminateTimer) { clearInterval(_indeterminateTimer); _indeterminateTimer = null; }
+  if (!on) { fill.style.width = '100%'; return; }
+  let pct = 5;
+  fill.style.width = pct + '%';
+  _indeterminateTimer = setInterval(() => {
+    pct = pct < 90 ? pct + 3 : 90;
+    fill.style.width = pct + '%';
+  }, 300);
+}
+
+function showMsg(id, msg, type) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!msg) { el.innerHTML = ''; return; }
+  const icons = { info:'ℹ️', success:'✅', error:'❌', warn:'⚠️' };
+  el.innerHTML = `<div class="status ${type}">${icons[type]||''} ${msg}</div>`;
+}
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function prettySort(s) {
+  return ({
+    MOST_RECENT:    '🕐 Most Recent',
+    MOST_HELPFUL:   '👍 Most Helpful',
+    POSITIVE_FIRST: '⭐ Positive First',
+    NEGATIVE_FIRST: '👎 Negative First',
+  })[s] || s;
+}
+</script>
+</body>
+</html>

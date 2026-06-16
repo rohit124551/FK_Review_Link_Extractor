@@ -1,0 +1,3741 @@
+{
+  "CACHE_INVALIDATION_TTL": "0",
+  "META_INFO": {
+    "abContext": {
+      "abWrapper": [
+        {
+          "abId": "STG|launchedGroup|46aeb36d|h"
+        },
+        {
+          "abId": "STG|launchedGroup|490bb6c8|h"
+        },
+        {
+          "abId": "STG|default|62863f60|h"
+        },
+        {
+          "abId": "STG|launchedGroup|dd56ee36|h"
+        },
+        {
+          "abId": "STG|inlineTargetingRules|f806a038|h"
+        }
+      ]
+    },
+    "appConfigHash": null,
+    "clientConfigHashMap": null,
+    "dcInfo": null,
+    "omnitureInfo": null
+  },
+  "REQUEST": null,
+  "REQUEST-ID": "6aa6947f-0d66-4cd7-b941-662089143340",
+  "RESPONSE": {
+    "pageData": {
+      "backTTL": 30000,
+      "elementId": "page",
+      "globalSlots": [],
+      "hardTTL": 2147483647,
+      "hasMorePages": true,
+      "infinitePage": true,
+      "layoutParams": {
+        "actionBarDetails": {
+          "actionBarColor": "#ffffff",
+          "actionBarTheme": "light",
+          "actionBarTitle": null,
+          "elevation": null
+        },
+        "backgroundColor": "#F1F2F4",
+        "hideActionBar": true,
+        "layoutTtl": 60000,
+        "orientation": "",
+        "theme": "light",
+        "themeDetails": {
+          "themeId": null
+        }
+      },
+      "pageContext": {
+        "type": "AllReviewsContext",
+        "bu": "AllReviewsContext",
+        "actionContext": null,
+        "aspectId": "overall",
+        "aspectName": null,
+        "certifiedBuyer": false,
+        "fdpEventTracking": null,
+        "fetchId": "6aa6947f-0d66-4cd7-b941-662089143340.SMWGY6YRYKY3GXQU",
+        "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+        "isNewUser": true,
+        "listingId": "LSTSMWGY6YRYKY3GXQURNE9WV",
+        "mallSelectionMode": "AllReviewsContext",
+        "productId": "SMWGY6YRYKY3GXQU",
+        "serviceabilityInfo": [],
+        "sortOrder": "MOST_RECENT",
+        "sourcePage": "prp",
+        "sproduct": ";SMWGY6YRYKY3GXQU;;;;eVar22=Wearable|eVar19=Smartwatch|eVar93=FLIPKART",
+        "totalReviewImageCount": null,
+        "tracking": {
+          "subCategory": "Wearable",
+          "superCategory": "IOT",
+          "vertical": "Smartwatch",
+          "superTitle": null,
+          "category": "Wearable",
+          "title": "Samsung Galaxy Fit3 | AMOLED Display & Aluminium Body | Upto 13Day Battery | 5ATM & IP68"
+        },
+        "widgetDataContext": null,
+        "xsState": null
+      },
+      "pageEventResponseMap": {},
+      "pageHash": "1371795969",
+      "pageId": "clone-dynam-8e0da",
+      "pageLevelSlots": {},
+      "pageTTL": 30000,
+      "pageTags": {
+        "tags": []
+      },
+      "pageTitle": "All Reviews",
+      "paginationContextMap": {},
+      "seoData": {
+        "seo": {
+          "alexaVerifyId": false,
+          "canonical": "https://www.flipkart.com/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU",
+          "description": "Read Latest Reviews of Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 on Flipkart.com. Find genuine customer reviews and ratings. Buy Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 at best prices on Flipkart.com.",
+          "googleSiteVerification": false,
+          "keywords": "Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 Reviews",
+          "noIndexSeo": false,
+          "ogTitle": "Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 Reviews: Latest Review of Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 | Price in India | Flipkart.com",
+          "ogUrl": "http://www.flipkart.com/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU",
+          "relAlternateMobile": "",
+          "title": "Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 Reviews: Latest Review of Samsung Galaxy Fit3 Amoled Display Aluminium Body Upto 13day Battery 5atm Ip68 | Price in India | Flipkart.com"
+        }
+      },
+      "sharedData": {
+        "collections": {
+          "SMWGY6YRYKY3GXQU": {
+            "sharedData": {
+              "collectionState": false
+            },
+            "sharedDataType": "COLLECTION_STATE_SHARED"
+          }
+        }
+      },
+      "trackingContext": {
+        "meta": {
+          "sMode": "BLUE"
+        },
+        "navigationalPageName": "dynamic",
+        "navigationalPageType": "dynamic",
+        "orderLevelTrackingMap": {},
+        "pageName": null,
+        "pageType": "dynamic",
+        "tracking": {
+          "loginStatus": "logout"
+        }
+      }
+    },
+    "pageMeta": {
+      "baseImpressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+      "hasErrorWidget": false,
+      "mergeTrackingContextForAllPageFold": false,
+      "pageNotChanged": false,
+      "prefetchPage": {
+        "enablePrefetch": false
+      },
+      "reusePrevPageFoldContext": false,
+      "widgetFetchDelayMs": 0
+    },
+    "slots": [
+      {
+        "slotType": "WIDGET",
+        "id": 1,
+        "parentId": 0,
+        "layoutParams": {
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1970771917",
+        "elementId": "1-ALL_REVIEWS_TITLE",
+        "hasWidgetDataChanged": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "ALL_REVIEWS_TITLE",
+          "data": {
+            "pageTitle": {
+              "action": null,
+              "metaData": null,
+              "rcType": null,
+              "tracking": null,
+              "trackingData": null,
+              "value": {
+                "type": "HeaderValue",
+                "abbSubHeader": null,
+                "actionButton": {
+                  "action": {
+                    "action": null,
+                    "constraints": null,
+                    "customTrackingEvents": null,
+                    "fallback": null,
+                    "loginType": "LOGIN_NOT_REQUIRED",
+                    "nonWidgetizeRedirection": null,
+                    "omnitureData": null,
+                    "omnitureTracking": null,
+                    "originalUrl": null,
+                    "params": {},
+                    "requiredPermissionType": null,
+                    "screenType": null,
+                    "storeValue": {},
+                    "subType": null,
+                    "tracking": {},
+                    "triggerExtraStandardEvents": null,
+                    "type": "GO_BACK",
+                    "url": null,
+                    "validationMeta": null,
+                    "widgetTracking": null,
+                    "widgetizedActions": null
+                  },
+                  "metaData": null,
+                  "rcType": null,
+                  "tracking": null,
+                  "trackingData": null,
+                  "value": {
+                    "type": "ButtonValue",
+                    "image": {
+                      "type": "ImageValue",
+                      "dynamicImageUrl": "https://rukminim1.flixcart.com/www/{@width}/{@height}/promos/11/11/2024/0ea30376-23f1-471e-90d8-2d47982b60d6.png?q={@quality}",
+                      "height": 36,
+                      "width": 36
+                    },
+                    "title": "ALL_REVIEWS_TITLE_BACK_BUTTON_TITLE"
+                  }
+                },
+                "actionButtonArrowEnable": null,
+                "actionButtonChevronImageUrl": null,
+                "actionButtonEnable": null,
+                "actionButtonTextValue": null,
+                "animation": null,
+                "backButtonEnable": null,
+                "backgroundDetails": null,
+                "bgColor": null,
+                "chevronButton": null,
+                "collapsed": false,
+                "collapsible": false,
+                "headerDetailsValue": null,
+                "headerMinorInfo": null,
+                "iconAnimation": null,
+                "imageValue": null,
+                "referenceImageValue": null,
+                "richTextAndImageActionButton": null,
+                "showActionButton": false,
+                "showHeader": true,
+                "subTitleValue": null,
+                "tags": null,
+                "timerValue": null,
+                "titleValue": {
+                  "type": "TitleValue",
+                  "image": null,
+                  "style": null,
+                  "subText": null,
+                  "text": "All Reviews"
+                },
+                "viewAllImageUrl": null
+              }
+            }
+          },
+          "tracking": {
+            "impressionId": "allReviewsTitle.SMWGY6YRYKY3GXQU.6d684aa0-ba62-45f2-ac64-9aded6b1ad1d"
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 2,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "inAppBar": false,
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "-1393627109",
+        "elementId": "2-ASPECT_CARDS",
+        "hasWidgetDataChanged": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "ASPECT_CARDS",
+          "viewType": "ASPECT_CARD_WITH_ICON",
+          "data": {
+            "aspectTabs": [
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "overall",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=overall",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "overall",
+                  "isSelected": true,
+                  "name": "Overall"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "9a648b28-f671-4e45-ad5d-86f62ece1e53",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=9a648b28-f671-4e45-ad5d-86f62ece1e53",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "9a648b28-f671-4e45-ad5d-86f62ece1e53",
+                  "isSelected": false,
+                  "name": "Display"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "a225a01d-64d9-4001-806e-10c803a81645",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=a225a01d-64d9-4001-806e-10c803a81645",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "a225a01d-64d9-4001-806e-10c803a81645",
+                  "isSelected": false,
+                  "name": "Design"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "acef2648-d1fb-45b1-987e-51da48c25f67",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=acef2648-d1fb-45b1-987e-51da48c25f67",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "acef2648-d1fb-45b1-987e-51da48c25f67",
+                  "isSelected": false,
+                  "name": "Value for Money"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "75c1a422-6d89-3efd-b014-2f757e453da1",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=75c1a422-6d89-3efd-b014-2f757e453da1",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "75c1a422-6d89-3efd-b014-2f757e453da1",
+                  "isSelected": false,
+                  "name": "Battery & Charging"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "valid": true,
+                    "productId": "SMWGY6YRYKY3GXQU",
+                    "aspectId": "bedd7a6f-54f1-3aac-84c1-df4a71a84b6d",
+                    "screenName": "PRODUCT_REVIEW_PAGE"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&sortOrder=MOST_RECENT&certifiedBuyer=false&aid=bedd7a6f-54f1-3aac-84c1-df4a71a84b6d",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "UgcAspectTabValue",
+                  "id": "bedd7a6f-54f1-3aac-84c1-df4a71a84b6d",
+                  "isSelected": false,
+                  "name": "Health & Fitness Tracking"
+                }
+              }
+            ]
+          },
+          "params": {
+            "enableReviewFilterPillTextColor": true
+          },
+          "tracking": {
+            "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340"
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 3,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,10,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "766267095",
+        "elementId": "3-RATING",
+        "hasWidgetDataChanged": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "RATING",
+          "viewType": "ROUNDED",
+          "data": {
+            "header": null,
+            "rating": {
+              "action": null,
+              "metaData": null,
+              "rcType": null,
+              "tracking": null,
+              "trackingData": null,
+              "value": {
+                "type": "UgcRatingValue",
+                "average": 4.4,
+                "base": 5,
+                "histogram": [
+                  1779,
+                  564,
+                  1353,
+                  5377,
+                  17566
+                ],
+                "histogramBaseCount": 17566,
+                "histogramFeedbackList": [
+                  {
+                    "feedbackPolarity": "POSITIVE",
+                    "percent": 91,
+                    "text": "Positive feedback"
+                  },
+                  {
+                    "feedbackPolarity": "NEGATIVE",
+                    "percent": 9,
+                    "text": "Negative feedback"
+                  }
+                ],
+                "ratingCount": 26639,
+                "reviewCount": 1798,
+                "viewType": "OVERALL_RATING_VIEW"
+              }
+            },
+            "reviewButton": null,
+            "reviewersRecommendPercentage": null,
+            "scaleAspectComponentDivisions": null,
+            "scaleAspectComponents": null,
+            "sentimentAspectComponent": null,
+            "trustImprovementCallout": null
+          },
+          "params": {
+            "showHighlyRatedTagTextColor": false
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 6,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "elevation": 2,
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "-1945370255",
+        "elementId": "6-REVIEW_IMAGES",
+        "hasWidgetDataChanged": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEW_IMAGES",
+          "viewType": "HORIZONTAL_SCROLLABLE",
+          "data": {
+            "header": null,
+            "renderableComponents": [
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_2bb5ca8b744143069292dc8e19b1987e.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:211&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_2bb5ca8b744143069292dc8e19b1987e.jpeg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_2bb5ca8b744143069292dc8e19b1987e.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:211&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_2bb5ca8b744143069292dc8e19b1987e.jpeg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_2bb5ca8b744143069292dc8e19b1987e.jpeg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_7c0462a657084e09a51a4c7879428b6f.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:211&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_7c0462a657084e09a51a4c7879428b6f.jpeg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_7c0462a657084e09a51a4c7879428b6f.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:211&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_7c0462a657084e09a51a4c7879428b6f.jpeg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_7c0462a657084e09a51a4c7879428b6f.jpeg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_d374cde8b2244040b7f1c21121871ee1.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:19&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_d374cde8b2244040b7f1c21121871ee1.jpg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_d374cde8b2244040b7f1c21121871ee1.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:19&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_d374cde8b2244040b7f1c21121871ee1.jpg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_d374cde8b2244040b7f1c21121871ee1.jpg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_92cbc11af6434b1989a151cc62af03ec.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:21&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_92cbc11af6434b1989a151cc62af03ec.jpg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_92cbc11af6434b1989a151cc62af03ec.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:21&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_92cbc11af6434b1989a151cc62af03ec.jpg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_92cbc11af6434b1989a151cc62af03ec.jpg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_5fd07ec75c3b4c95878b700636233e1d.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:40&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_5fd07ec75c3b4c95878b700636233e1d.jpeg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_5fd07ec75c3b4c95878b700636233e1d.jpeg&reviewReferenceId=SMWGY6YRNHBBK8FP:40&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_5fd07ec75c3b4c95878b700636233e1d.jpeg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_5fd07ec75c3b4c95878b700636233e1d.jpeg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_fe060fa429cc4f6bb3b0c7b63a6190ee.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:12&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_fe060fa429cc4f6bb3b0c7b63a6190ee.jpg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_fe060fa429cc4f6bb3b0c7b63a6190ee.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:12&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_fe060fa429cc4f6bb3b0c7b63a6190ee.jpg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_fe060fa429cc4f6bb3b0c7b63a6190ee.jpg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_61056d5bf08e40118dd12125541223a9.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:12&language=en",
+                  "params": {
+                    "imageId": "blobio-imr_61056d5bf08e40118dd12125541223a9.jpg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewFullScreenPage",
+                    "horizontallyPaginated": true,
+                    "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_61056d5bf08e40118dd12125541223a9.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:12&language=en",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "imageId": "blobio-imr_61056d5bf08e40118dd12125541223a9.jpg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_61056d5bf08e40118dd12125541223a9.jpg?q={@quality}",
+                  "viewType": "DEFAULT_VIEW"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_6816231c00ae43fd8d0faf49782d2db0.jpg",
+                  "params": {
+                    "imageId": "blobio-imr_6816231c00ae43fd8d0faf49782d2db0.jpg",
+                    "imagesShown": 7,
+                    "screenName": "productReviewImageGalleryPage",
+                    "totalImageCount": 540
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": "multiWidgetPage",
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "NAVIGATION",
+                  "url": "/review-image-grid?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_6816231c00ae43fd8d0faf49782d2db0.jpg",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewImage",
+                  "additionalImageCount": 533,
+                  "imageId": "blobio-imr_6816231c00ae43fd8d0faf49782d2db0.jpg",
+                  "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_6816231c00ae43fd8d0faf49782d2db0.jpg?q={@quality}",
+                  "viewType": "OVERLAY_COUNT_VIEW"
+                }
+              }
+            ]
+          },
+          "tracking": {
+            "totalImageCount": "540",
+            "imagesShown": "7"
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 7,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,8,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1815140773",
+        "elementId": "7-REVIEW_FILTERS",
+        "hasWidgetDataChanged": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEW_FILTERS",
+          "viewType": "REVIEW_FILTER_PILL",
+          "data": {
+            "certifiedBuyerFilter": {
+              "action": {
+                "action": null,
+                "constraints": null,
+                "customTrackingEvents": null,
+                "fallback": null,
+                "loginType": "LOGIN_NOT_REQUIRED",
+                "nonWidgetizeRedirection": null,
+                "omnitureData": null,
+                "omnitureTracking": null,
+                "originalUrl": null,
+                "params": {
+                  "deselected": "ALL",
+                  "paramName": "reviewerType",
+                  "selected": "CERTIFIED_BUYER"
+                },
+                "requiredPermissionType": null,
+                "screenType": null,
+                "storeValue": {},
+                "subType": null,
+                "tracking": {},
+                "triggerExtraStandardEvents": null,
+                "type": "CHANGE_URI",
+                "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&aid=overall&sortOrder=MOST_RECENT&certifiedBuyer=true",
+                "validationMeta": null,
+                "widgetTracking": null,
+                "widgetizedActions": null
+              },
+              "metaData": null,
+              "rcType": null,
+              "tracking": null,
+              "trackingData": null,
+              "value": {
+                "type": "ReviewFilterValue",
+                "isSelected": false,
+                "text": "Verified Purchases"
+              }
+            },
+            "sortOptions": [
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "sortOrder": "MOST_HELPFUL"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": null,
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&aid=overall&certifiedBuyer=false&sortOrder=MOST_HELPFUL",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewFilterValue",
+                  "isSelected": false,
+                  "text": "Most Helpful"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "sortOrder": "MOST_RECENT"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": null,
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&aid=overall&certifiedBuyer=false&sortOrder=MOST_RECENT",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewFilterValue",
+                  "isSelected": true,
+                  "text": "Latest"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "sortOrder": "POSITIVE_FIRST"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": null,
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&aid=overall&certifiedBuyer=false&sortOrder=POSITIVE_FIRST",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewFilterValue",
+                  "isSelected": false,
+                  "text": "Positive"
+                }
+              },
+              {
+                "action": {
+                  "action": null,
+                  "constraints": null,
+                  "customTrackingEvents": null,
+                  "fallback": null,
+                  "loginType": "LOGIN_NOT_REQUIRED",
+                  "nonWidgetizeRedirection": null,
+                  "omnitureData": null,
+                  "omnitureTracking": null,
+                  "originalUrl": null,
+                  "params": {
+                    "sortOrder": "NEGATIVE_FIRST"
+                  },
+                  "requiredPermissionType": null,
+                  "screenType": null,
+                  "storeValue": {},
+                  "subType": null,
+                  "tracking": {},
+                  "triggerExtraStandardEvents": null,
+                  "type": "CHANGE_URI",
+                  "url": "/samsung-galaxy-fit3-amoled-display-aluminium-body-upto-13day-battery-5atm-ip68/product-reviews/itm5d52a219c74a5?pid=SMWGY6YRYKY3GXQU&lid=LSTSMWGY6YRYKY3GXQURNE9WV&aid=overall&certifiedBuyer=false&sortOrder=NEGATIVE_FIRST",
+                  "validationMeta": null,
+                  "widgetTracking": null,
+                  "widgetizedActions": null
+                },
+                "metaData": null,
+                "rcType": null,
+                "tracking": null,
+                "trackingData": null,
+                "value": {
+                  "type": "ReviewFilterValue",
+                  "isSelected": false,
+                  "text": "Negative"
+                }
+              }
+            ],
+            "title": "User reviews sorted by"
+          },
+          "tracking": {
+            "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+            "contextType": "page"
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001001,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1761409999",
+        "elementId": "8001001-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "1",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "1"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Tushi  Paul",
+                  "certifiedBuyer": true,
+                  "created": "Today",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "79b4032a-d38a-4b15-8bf7-0eab139b9451",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "79b4032a-d38a-4b15-8bf7-0eab139b9451",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Kolkata",
+                    "state": "West Bengal"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "Pink"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "79b4032a-d38a-4b15-8bf7-0eab139b9451",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Overall experience was really good 👍🏻",
+                  "title": "Awesome",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "79b4032a-d38a-4b15-8bf7-0eab139b9451",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRFDZ39HGV:311?reviewId=79b4032a-d38a-4b15-8bf7-0eab139b9451",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001002,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "378742013",
+        "elementId": "8001002-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "2",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "2"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Nikhil Jaiswal ",
+                  "certifiedBuyer": true,
+                  "created": "1 day ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "451560c5-7d22-4737-93a4-048ddb4c2ed2",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "451560c5-7d22-4737-93a4-048ddb4c2ed2",
+                  "images": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRFDZ39HGV&imageId=blobio-imr_401d194a85554e2488d19f3398722634.jpeg&reviewReferenceId=SMWGY6YRFDZ39HGV:310&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_401d194a85554e2488d19f3398722634.jpeg",
+                          "imagesShown": 1,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-image-grid?pid=SMWGY6YRFDZ39HGV&reviewId=451560c5-7d22-4737-93a4-048ddb4c2ed2&reviewReferenceId=SMWGY6YRFDZ39HGV:310",
+                          "totalImageCount": 1
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRFDZ39HGV&imageId=blobio-imr_401d194a85554e2488d19f3398722634.jpeg&reviewReferenceId=SMWGY6YRFDZ39HGV:310&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_401d194a85554e2488d19f3398722634.jpeg",
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_401d194a85554e2488d19f3398722634.jpeg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "location": {
+                    "type": "Location",
+                    "city": "Katni",
+                    "state": "Madhya Pradesh"
+                  },
+                  "media": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRFDZ39HGV&imageId=blobio-imr_401d194a85554e2488d19f3398722634.jpeg&reviewReferenceId=SMWGY6YRFDZ39HGV:310&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_401d194a85554e2488d19f3398722634.jpeg",
+                          "totalMediaCount": 1,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-media-grid?pid=SMWGY6YRFDZ39HGV&reviewId=451560c5-7d22-4737-93a4-048ddb4c2ed2&reviewReferenceId=SMWGY6YRFDZ39HGV:310",
+                          "mediaShown": 1
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRFDZ39HGV&imageId=blobio-imr_401d194a85554e2488d19f3398722634.jpeg&reviewReferenceId=SMWGY6YRFDZ39HGV:310&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_401d194a85554e2488d19f3398722634.jpeg",
+                        "imageStyle": {
+                          "borderRadius": 4,
+                          "height": 92,
+                          "width": 92
+                        },
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_401d194a85554e2488d19f3398722634.jpeg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "Pink"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "451560c5-7d22-4737-93a4-048ddb4c2ed2",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "I ordered it for my mom and she loved it ❤️.. thanks 🤩 Flipkart",
+                  "title": "Brilliant",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "451560c5-7d22-4737-93a4-048ddb4c2ed2",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRFDZ39HGV:310?reviewId=451560c5-7d22-4737-93a4-048ddb4c2ed2",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001003,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1370379339",
+        "elementId": "8001003-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "3",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "3"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Prince Manchanda",
+                  "certifiedBuyer": true,
+                  "created": "1 day ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ee8ad593-fdd9-42fe-8bbe-98bc1934c4d8",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "ee8ad593-fdd9-42fe-8bbe-98bc1934c4d8",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Patiala",
+                    "state": "Punjab"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "White"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ee8ad593-fdd9-42fe-8bbe-98bc1934c4d8",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Best fitness band in this segment \nReally premium in hand feel\nAll the sensors are precise and accurate.\nOverall love this product!!",
+                  "title": "Terrific purchase",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ee8ad593-fdd9-42fe-8bbe-98bc1934c4d8",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRNHBBK8FP:802?reviewId=ee8ad593-fdd9-42fe-8bbe-98bc1934c4d8",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001004,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "346354429",
+        "elementId": "8001004-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "4",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "4"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Latha pila",
+                  "certifiedBuyer": true,
+                  "created": "2 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ec69e7fa-f136-43d6-b787-ace4eda4ff41",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "ec69e7fa-f136-43d6-b787-ace4eda4ff41",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Hyderabad",
+                    "state": "Telangana"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "White"
+                    }
+                  ],
+                  "rating": 1,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ec69e7fa-f136-43d6-b787-ace4eda4ff41",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Not useful for iPhone",
+                  "title": "Very poor",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ec69e7fa-f136-43d6-b787-ace4eda4ff41",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRNHBBK8FP:801?reviewId=ec69e7fa-f136-43d6-b787-ace4eda4ff41",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001005,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "-635881205",
+        "elementId": "8001005-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "5",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "5"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Vishal Goyal",
+                  "certifiedBuyer": true,
+                  "created": "3 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "8e6be4d7-863f-494f-92ad-01d069ac98d9",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "8e6be4d7-863f-494f-92ad-01d069ac98d9",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "North 24 Parganas",
+                    "state": "West Bengal"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "White"
+                    }
+                  ],
+                  "rating": 1,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "8e6be4d7-863f-494f-92ad-01d069ac98d9",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Battery lasts only for 2 days against promise of 10 days",
+                  "title": "Waste of money!",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "8e6be4d7-863f-494f-92ad-01d069ac98d9",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRNHBBK8FP:800?reviewId=8e6be4d7-863f-494f-92ad-01d069ac98d9",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001006,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "-899600108",
+        "elementId": "8001006-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "6",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "6"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Sanjeet Das",
+                  "certifiedBuyer": true,
+                  "created": "5 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2",
+                  "images": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg",
+                          "imagesShown": 2,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-image-grid?pid=SMWGY6YRNHBBK8FP&reviewId=2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2&reviewReferenceId=SMWGY6YRNHBBK8FP:799",
+                          "totalImageCount": 2
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg",
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    },
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg",
+                          "imagesShown": 2,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-image-grid?pid=SMWGY6YRNHBBK8FP&reviewId=2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2&reviewReferenceId=SMWGY6YRNHBBK8FP:799",
+                          "totalImageCount": 2
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg",
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "location": {
+                    "type": "Location",
+                    "city": "Bhubaneswar",
+                    "state": "Odisha"
+                  },
+                  "media": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg",
+                          "totalMediaCount": 2,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-media-grid?pid=SMWGY6YRNHBBK8FP&reviewId=2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2&reviewReferenceId=SMWGY6YRNHBBK8FP:799",
+                          "mediaShown": 2
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg",
+                        "imageStyle": {
+                          "borderRadius": 4,
+                          "height": 92,
+                          "width": 92
+                        },
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_250d0e5c9d654514bac63716042b6a1c.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    },
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg",
+                          "totalMediaCount": 2,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-media-grid?pid=SMWGY6YRNHBBK8FP&reviewId=2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2&reviewReferenceId=SMWGY6YRNHBBK8FP:799",
+                          "mediaShown": 2
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRNHBBK8FP&imageId=blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg&reviewReferenceId=SMWGY6YRNHBBK8FP:799&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg",
+                        "imageStyle": {
+                          "borderRadius": 4,
+                          "height": 92,
+                          "width": 92
+                        },
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_aa9a29f1570949aaa00392e7f0dd42a7.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "White"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Great Product, Feels very premium.\nAlso, One can easily remove the band strap and apply different band colors. Gets charged very quickly. \nLoved it!",
+                  "title": "Great product",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRNHBBK8FP:799?reviewId=2f7b0ec2-ccbf-40d4-b6f8-2a88d15709c2",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001007,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1866738956",
+        "elementId": "8001007-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "7",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "7"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Arif  Ansari ",
+                  "certifiedBuyer": true,
+                  "created": "5 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "d461ccb6-51d3-47b7-826d-6f8d4e1780e3",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "d461ccb6-51d3-47b7-826d-6f8d4e1780e3",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Etawah",
+                    "state": "Uttar Pradesh"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "Pink"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "d461ccb6-51d3-47b7-826d-6f8d4e1780e3",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Thanks you flipkatr",
+                  "title": "Mind-blowing purchase",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "d461ccb6-51d3-47b7-826d-6f8d4e1780e3",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRFDZ39HGV:309?reviewId=d461ccb6-51d3-47b7-826d-6f8d4e1780e3",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001008,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "44975808",
+        "elementId": "8001008-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "8",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "8"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Flipkart Customer",
+                  "certifiedBuyer": true,
+                  "created": "5 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "96428e4b-71da-4bd9-a1da-e14801d6f452",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "96428e4b-71da-4bd9-a1da-e14801d6f452",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Chennai",
+                    "state": "Tamil Nadu"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "White"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "96428e4b-71da-4bd9-a1da-e14801d6f452",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "veryy good product loved it",
+                  "title": "Best in the market!",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "96428e4b-71da-4bd9-a1da-e14801d6f452",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRNHBBK8FP:798?reviewId=96428e4b-71da-4bd9-a1da-e14801d6f452",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001009,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "2083441346",
+        "elementId": "8001009-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "9",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "9"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Bhagyashree Malikarjun hulsgud",
+                  "certifiedBuyer": true,
+                  "created": "6 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ca8fc277-f994-4f7e-be9f-b5ec53ea3b82",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "ca8fc277-f994-4f7e-be9f-b5ec53ea3b82",
+                  "images": [],
+                  "location": {
+                    "type": "Location",
+                    "city": "Kalaburagi",
+                    "state": "Karnataka"
+                  },
+                  "media": [],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "Gray"
+                    }
+                  ],
+                  "rating": 4,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ca8fc277-f994-4f7e-be9f-b5ec53ea3b82",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "All features are good",
+                  "title": "Very Good",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "ca8fc277-f994-4f7e-be9f-b5ec53ea3b82",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRYKY3GXQU:2322?reviewId=ca8fc277-f994-4f7e-be9f-b5ec53ea3b82",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "slotType": "WIDGET",
+        "id": 8001010,
+        "parentId": 0,
+        "layoutParams": {
+          "backgroundColor": "#FFFFFF",
+          "margin": "0,0,0,0",
+          "orientation": "",
+          "widgetHeight": 150,
+          "widgetWidth": 12
+        },
+        "dataId": "1163227213",
+        "elementId": "8001010-REVIEWS",
+        "hasWidgetDataChanged": true,
+        "paginatedWidget": true,
+        "ttl": 3000,
+        "widget": {
+          "type": "REVIEWS",
+          "viewType": "RATING_ROUNDED",
+          "data": {
+            "renderableComponents": [
+              {
+                "action": null,
+                "metaData": null,
+                "rcType": null,
+                "tracking": {
+                  "position": "10",
+                  "reviewLanguage": "en",
+                  "contentType": "Reviews.Widget",
+                  "impressionId": "6aa6947f-0d66-4cd7-b941-662089143340",
+                  "contextType": "page",
+                  "otracker": "10"
+                },
+                "trackingData": null,
+                "value": {
+                  "type": "ProductReviewValue",
+                  "author": "Flipkart Customer",
+                  "certifiedBuyer": true,
+                  "created": "6 days ago",
+                  "downvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "78370f11-cd0f-417e-99e6-f0af7fd68af1",
+                        "vote": "DOWN"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "helpfulCount": 0,
+                  "id": "78370f11-cd0f-417e-99e6-f0af7fd68af1",
+                  "images": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_f8e920055e0849ef817595301eab2895.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:2321&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_f8e920055e0849ef817595301eab2895.jpg",
+                          "imagesShown": 1,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-image-grid?pid=SMWGY6YRYKY3GXQU&reviewId=78370f11-cd0f-417e-99e6-f0af7fd68af1&reviewReferenceId=SMWGY6YRYKY3GXQU:2321",
+                          "totalImageCount": 1
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_f8e920055e0849ef817595301eab2895.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:2321&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_f8e920055e0849ef817595301eab2895.jpg",
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_f8e920055e0849ef817595301eab2895.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "location": {
+                    "type": "Location",
+                    "city": "Didwana Kuchaman",
+                    "state": "Rajasthan"
+                  },
+                  "media": [
+                    {
+                      "action": {
+                        "action": null,
+                        "constraints": null,
+                        "customTrackingEvents": null,
+                        "fallback": null,
+                        "loginType": "LOGIN_NOT_REQUIRED",
+                        "nonWidgetizeRedirection": null,
+                        "omnitureData": null,
+                        "omnitureTracking": null,
+                        "originalUrl": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_f8e920055e0849ef817595301eab2895.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:2321&language=en",
+                        "params": {
+                          "imageId": "blobio-imr_f8e920055e0849ef817595301eab2895.jpg",
+                          "totalMediaCount": 1,
+                          "screenName": "productReviewFullScreenPage",
+                          "horizontallyPaginated": true,
+                          "paginationUrl": "/review-media-grid?pid=SMWGY6YRYKY3GXQU&reviewId=78370f11-cd0f-417e-99e6-f0af7fd68af1&reviewReferenceId=SMWGY6YRYKY3GXQU:2321",
+                          "mediaShown": 1
+                        },
+                        "requiredPermissionType": null,
+                        "screenType": "multiWidgetPage",
+                        "storeValue": {},
+                        "subType": null,
+                        "tracking": {},
+                        "triggerExtraStandardEvents": null,
+                        "type": "NAVIGATION",
+                        "url": "/review-image-fullscreen?pid=SMWGY6YRYKY3GXQU&imageId=blobio-imr_f8e920055e0849ef817595301eab2895.jpg&reviewReferenceId=SMWGY6YRYKY3GXQU:2321&language=en",
+                        "validationMeta": null,
+                        "widgetTracking": null,
+                        "widgetizedActions": null
+                      },
+                      "metaData": null,
+                      "rcType": null,
+                      "tracking": null,
+                      "trackingData": null,
+                      "value": {
+                        "type": "ReviewImage",
+                        "imageId": "blobio-imr_f8e920055e0849ef817595301eab2895.jpg",
+                        "imageStyle": {
+                          "borderRadius": 4,
+                          "height": 92,
+                          "width": 92
+                        },
+                        "imageURL": "https://rukminim1.flixcart.com/blobio/{@width}/{@height}/imr/blobio-imr_f8e920055e0849ef817595301eab2895.jpg?q={@quality}",
+                        "viewType": "DEFAULT_VIEW"
+                      }
+                    }
+                  ],
+                  "productAttribute": null,
+                  "productAttributeList": [
+                    {
+                      "name": "Display Size",
+                      "value": "40.64 mm"
+                    },
+                    {
+                      "name": "Strap Color",
+                      "value": "Gray"
+                    }
+                  ],
+                  "rating": 5,
+                  "ratingDetails": null,
+                  "reportAbuse": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_report_abuse"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "78370f11-cd0f-417e-99e6-f0af7fd68af1",
+                        "vote": "ABUSE"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "reviewPropertyMap": {
+                    "VERIFIED_PURCHASE": true
+                  },
+                  "reviewTypeDisplayText": null,
+                  "text": "Very good quality and very useful product 👍 I  have been using this product for the Last 5 months",
+                  "title": "Must buy!",
+                  "totalCount": 0,
+                  "upvote": {
+                    "action": {
+                      "action": null,
+                      "constraints": [
+                        {
+                          "metaInfo": {
+                            "openInBottomSheet": "true",
+                            "url": "/login?type=mobile&sourceContext=review_vote"
+                          },
+                          "type": "LOGIN"
+                        }
+                      ],
+                      "customTrackingEvents": null,
+                      "fallback": null,
+                      "loginType": "LEGACY_LOGIN",
+                      "nonWidgetizeRedirection": null,
+                      "omnitureData": null,
+                      "omnitureTracking": null,
+                      "originalUrl": null,
+                      "params": {
+                        "reviewDomain": "PRODUCT",
+                        "reviewLanguage": "en",
+                        "source": "prp",
+                        "reviewId": "78370f11-cd0f-417e-99e6-f0af7fd68af1",
+                        "vote": "UP"
+                      },
+                      "requiredPermissionType": null,
+                      "screenType": null,
+                      "storeValue": {},
+                      "subType": null,
+                      "tracking": {},
+                      "triggerExtraStandardEvents": null,
+                      "type": "REVIEW_VOTE",
+                      "url": null,
+                      "validationMeta": null,
+                      "widgetTracking": null,
+                      "widgetizedActions": null
+                    },
+                    "metaData": null,
+                    "rcType": null,
+                    "tracking": null,
+                    "trackingData": null,
+                    "value": {
+                      "type": "VoteValue",
+                      "count": 0,
+                      "isSelected": false
+                    }
+                  },
+                  "url": "/reviews/SMWGY6YRYKY3GXQU:2321?reviewId=78370f11-cd0f-417e-99e6-f0af7fd68af1",
+                  "userBadge": null
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "SESSION": {
+    "accountId": null,
+    "asn": null,
+    "at": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFkOTYzYzUwLTM0YjctNDA1OC1iMTNmLWY2NDhiODFjYTBkYSJ9.eyJleHAiOjE3ODI4MTgxMjMsImlhdCI6MTc4MTA5MDEyMywiaXNzIjoia2V2bGFyIiwianRpIjoiMGIwNjM5MGItZDM5NS00YTM3LTg3YzUtMmExZTUxY2ZjNzExIiwidHlwZSI6IkFUIiwiZElkIjoiVEkxNzgxMDkwMTIwNjYxMDAwNTU5MzE1NTI3NzI3NjMyNjg5MTUxMDYyNDA1Mzk2NTkxOTUwMTc4MDMwNTU4NzIwOTIiLCJrZXZJZCI6IlZJOTkyQkYxN0UyQzBCNDFFM0I1QTlBMDVCOUZCNzRCOEQiLCJ0SWQiOiJtYXBpIiwidnMiOiJMTyIsInoiOiJIWUQiLCJtIjp0cnVlLCJnZW4iOjN9.vElcui3XolMG1ufzikJY5xILKMfD29IM76V9eATTgBY",
+    "email": null,
+    "firstName": null,
+    "flipkartFirstUser": false,
+    "isLoggedIn": false,
+    "kAction": null,
+    "lastName": null,
+    "nsid": "3.VI992BF17E2C0B41E3B5A9A05B9FB74B8D.1781097272144.VI992BF17E2C0B41E3B5A9A05B9FB74B8D",
+    "rt": "null",
+    "secureToken": "VI992BF17E2C0B41E3B5A9A05B9FB74B8D:VI992BF17E2C0B41E3B5A9A05B9FB74B8D",
+    "sn": "VI992BF17E2C0B41E3B5A9A05B9FB74B8D.TOK2A447DCD825A4D6CBBEA8C4ACBFBBB47.1781097271793.LO",
+    "ts": 0,
+    "twoFa": false,
+    "vid": "VI992BF17E2C0B41E3B5A9A05B9FB74B8D"
+  },
+  "STATUS_CODE": 200
+}

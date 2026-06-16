@@ -1,0 +1,15 @@
+{
+  "name": "flipkart-scraper",
+  "version": "1.0.0",
+  "description": "Flipkart Review Scraper",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  }
+}
