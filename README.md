@@ -53,7 +53,7 @@ ReviewLens bypasses Flipkart's frontend entirely. Instead of relying on what's v
 2. **Reconstructs the direct permalink URL** for each review — the same URL that Flipkart's old UI used to show but no longer does.
 3. **Lets you copy that link** with a single click.
 4. **Lets you search by reviewer name** across multiple pages — so you can find a specific person's review even if it's buried on page 5.
-5. **Lets you export everything** as CSV or JSON for offline use.
+5. **Lets you export everything** as CSV (Excel) or Print/Save as PDF.
 
 ---
 
@@ -61,7 +61,7 @@ ReviewLens bypasses Flipkart's frontend entirely. Instead of relying on what's v
 
 In simple terms:
 
-> You paste a Flipkart product link → ReviewLens fetches all the reviews for that product → You can browse them, search for a specific reviewer by name, sort them, **copy the direct link to any individual review**, and download the data as CSV or JSON.
+> You paste a Flipkart product link → ReviewLens fetches all the reviews for that product → You can browse them, search for a specific reviewer by name, sort them, **copy the direct link to any individual review**, and download the data as CSV or print/save to PDF.
 
 Flipkart does not provide a public API to access product reviews. ReviewLens uses your authenticated Flipkart session cookies to call Flipkart's internal review API (the same one their website uses behind the scenes). The application then parses the raw API response and presents the review data in a clean, searchable, and exportable interface — most importantly, with **clickable permalink URLs** that Flipkart's new UI no longer shows.
 
@@ -89,9 +89,9 @@ For each review, the app extracts and displays:
 - **Anyone who needs a direct link to a Flipkart review** — The primary use case. If Flipkart's new UI is hiding the review link from you, this app gets it for you.
 - **Sellers & Brands** — Monitor customer feedback, track specific reviews, and get direct links to reviews you want to respond to or report.
 - **Buyers filing complaints** — Need to reference a specific fake or misleading review in a dispute? Get the exact link.
-- **Market Researchers** — Collect and analyze review sentiment across products with structured CSV/JSON exports.
+- **Market Researchers** — Collect and analyze review sentiment across products with CSV and PDF exports.
 - **Quality Assurance Teams** — Track negative reviews and document them with direct links.
-- **Developers** — Use the extracted JSON data for further analysis, sentiment dashboards, or integrations.
+- **Developers & Analysts** — Use the extracted review data for sentiment dashboards, offline auditing, or integrations.
 
 ---
 
@@ -120,7 +120,7 @@ Once the URL is valid, the sidebar unlocks additional controls:
 Reviews are displayed as beautiful glass-morphism cards showing the rating, full review text, author info, and a copy-link button. You can:
 - **Expand** long reviews to read the full text.
 - **Copy** the direct permalink to any individual review.
-- **Export** all loaded reviews as CSV (for spreadsheets) or JSON (for code/data analysis).
+- **Export** all loaded reviews as CSV (for spreadsheets) or generate a print-ready PDF preview.
 
 ---
 
@@ -132,8 +132,10 @@ Reviews are displayed as beautiful glass-morphism cards showing the rating, full
 - **Real-time URL validation** — Instantly validates pasted URLs and auto-converts product page links to review page links. No button click needed.
 - **Four sort modes** — Most Recent, Most Helpful, Positive First, Negative First.
 - **Page navigation** — Increment/decrement page numbers with visual page counter.
-- **CSV & JSON export** — Download all currently loaded reviews as structured data files.
+- **CSV & PDF export** — Download all currently loaded reviews as a CSV (Excel) file, or preview and print/save to PDF format (JSON export has been removed to simplify user options).
 - **Copy review permalink** — One-click copy of the direct Flipkart URL for any individual review.
+- **Local Favorites / Bookmarking** — Star reviews to save them locally (persisted in browser storage). View them in a dedicated tab, export them, or clear them all with a simple confirmation modal.
+- **Search History Popover** — Quickly access recent searches from an interactive clock dropdown next to the URL input, syncs with local storage, and includes individual and bulk clear controls.
 
 ### User Interface
 - **Slate + Amber design system** — A carefully curated dark/light color palette using deep slate backgrounds (`#0f172a`, `#1e293b`) and warm amber accents (`#d97706`, `#fbbf24`).

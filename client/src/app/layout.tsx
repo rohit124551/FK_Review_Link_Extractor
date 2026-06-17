@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ReviewLens — Flipkart Review Link Extractor",
-  description: "Bypass the new Flipkart UI update restrictions. Instantly extract direct review permalink URLs, search reviews by author name, filter, and export reviews as CSV or JSON format.",
+  title: "ReviewLens - Copy & Search Flipkart Review Links",
+  description: "Easily find and copy direct links to Flipkart reviews. Search by reviewer name, filter, and export reviews to CSV (Excel) or print to PDF.",
   keywords: "flipkart review link extractor, copy flipkart review link, flipkart review search, extract flipkart reviews, review permalinks, flipkart scraper",
   authors: [{ name: "Rohit Kumar Ranjan" }],
   robots: "index, follow",
