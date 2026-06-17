@@ -137,16 +137,10 @@ export default {
 
         const matched = [];
         const pagesScanned = [];
-        let totalPages = 1;
         let productName = 'Unknown Product';
         let stoppedReason = 'completed';
 
         for (let p = 1; p <= scanMax; p++) {
-          if (p > 1 && p > totalPages) {
-            stoppedReason = 'no more pages';
-            break;
-          }
-
           const uri = buildPageUri(pageUri, p, sortOrder);
           try {
             const response = await fetch(API_URL, {
@@ -170,20 +164,35 @@ export default {
             const data = await response.json();
             const parsed = parseApiResponse(data);
 
+            if (parsed.error) {
+              stoppedReason = parsed.error;
+              break;
+            }
+
             if (p === 1) {
-              totalPages  = parsed.totalPages;
               productName = parsed.productName;
             }
 
             pagesScanned.push(p);
 
+            const cleanNeedle = needle.replace(/\s+/g, '');
             for (const rev of parsed.reviews) {
-              if (rev.author && rev.author.toLowerCase().includes(needle)) {
-                matched.push({ ...rev, _foundOnPage: p });
+              if (rev.author) {
+                const cleanAuthor = rev.author.toLowerCase().replace(/\s+/g, '');
+                if (cleanAuthor.includes(cleanNeedle)) {
+                  matched.push({ ...rev, _foundOnPage: p });
+                }
               }
             }
 
-            if (p < Math.min(scanMax, totalPages)) {
+            // Stop if API says no more pages
+            if (!parsed.hasMorePages) {
+              stoppedReason = 'no more pages';
+              break;
+            }
+
+            // Small delay between requests
+            if (p < scanMax) {
               await new Promise(r => setTimeout(r, 400));
             }
           } catch (err) {
@@ -195,7 +204,6 @@ export default {
         return new Response(JSON.stringify({
           reviews: matched,
           productName,
-          totalPages,
           pagesScanned: pagesScanned.length,
           searchName: name,
           sortOrder,
@@ -304,9 +312,38 @@ function buildApiHeaders(cookies) {
 
 function parseApiResponse(data) {
   const reviews = [];
-  let totalPages = 1;
   let productName = 'Unknown Product';
+  let hasMorePages = false;
+  let totalPages = 1;
+  let apiSortOrder = null;
 
+  // ── 1. Product name (from tracking context) ──
+  try {
+    const title = data?.RESPONSE?.pageData?.pageContext?.tracking?.title;
+    if (title) productName = title;
+  } catch {}
+
+  // ── 2. Fallback: SEO keywords ──
+  if (productName === 'Unknown Product') {
+    try {
+      const keywords = data?.RESPONSE?.pageData?.seoData?.seo?.keywords;
+      if (keywords) {
+        productName = keywords.replace(/\s+Reviews?\s*$/i, '').trim();
+      }
+    } catch {}
+  }
+
+  // ── 3. Pagination — hasMorePages ──
+  try {
+    hasMorePages = data?.RESPONSE?.pageData?.hasMorePages === true;
+  } catch {}
+
+  // ── 4. Sort order (echoed back) ──
+  try {
+    apiSortOrder = data?.RESPONSE?.pageData?.pageContext?.sortOrder || null;
+  } catch {}
+
+  // ── 5. Walk all widgets to extract reviews ──
   const allWidgets = findAllWidgets(data);
 
   for (const widget of allWidgets) {
@@ -328,34 +365,30 @@ function parseApiResponse(data) {
           }
 
           reviews.push({
-            id:             v?.id,
-            title:          v?.title,
-            text:           v?.text,
-            rating:         v?.rating,
-            author:         v?.author,
+            id:             v?.id || null,
+            title:          v?.title || null,
+            text:           v?.text || null,
+            rating:         v?.rating || null,
+            author:         v?.author || null,
             certifiedBuyer: v?.certifiedBuyer || false,
-            created:        v?.created,
-            location,
+            created:        v?.created || null,
+            location:       location || null,
             helpfulCount:   v?.helpfulCount || 0,
             attributes:     attrs,
-            permalink:      v?.url ? FLIPKART_BASE + v.url : '',
+            permalink:      v?.url ? FLIPKART_BASE + v.url : null,
           });
         }
       }
     }
 
+    // Fallback: try to get totalPages from pagination widget if present
     if (type === 'PAGINATION_BAR' || type === 'PAGINATOR') {
       const tp = widget?.data?.totalPages || widget?.totalPages;
       if (tp) totalPages = tp;
     }
-
-    if (type === 'PRODUCT_MIN' || type === 'PRODUCT_SUMMARY') {
-      const name = widget?.data?.product?.value?.titles?.title || widget?.data?.titles?.title;
-      if (name) productName = name;
-    }
   }
 
-  return { reviews, totalPages, productName };
+  return { reviews, productName, hasMorePages, totalPages, apiSortOrder };
 }
 
 function findAllWidgets(node, results = []) {

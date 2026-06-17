@@ -546,63 +546,47 @@ export default function Home() {
     setLastFetchType(isNameSearch ? 'name' : 'page');
 
     if (isNameSearch) {
-      const needle = searchName.trim().toLowerCase().replace(/\s+/g, '');
+      const needle = searchName.trim();
       if (!needle) {
         showToast('Please enter a name to search', 'error');
         setLoading(false);
         return;
       }
 
+      setScanProgress('Scanning up to 8 pages…');
+
       try {
-        const accumulatedMatches = [];
-        let currentProdName = null;
-        let hasMore = true;
+        const res = await fetch(`${API_BASE_URL}/api/search-by-name`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pageUri: cleanProductUrl,
+            name: needle,
+            maxPages: 8,
+            sortOrder,
+          })
+        });
 
-        for (let p = 1; p <= 8; p++) {
-          setScanProgress(`Scanning page ${p} of 8…`);
-          
-          const res = await fetch(`${API_BASE_URL}/api/reviews`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ pageUri: cleanProductUrl, page: p, sortOrder })
-          });
+        const data = await res.json();
 
-          const data = await res.json();
-          if (data.error) {
-            showToast(data.error, 'error');
-            break;
-          }
-
-          if (p === 1 && data.productName) {
-            currentProdName = data.productName;
-          }
-
-          const pageReviews = data.reviews || [];
-          const matches = pageReviews.filter((rev: any) => {
-            if (!rev.author) return false;
-            const cleanAuthor = rev.author.toLowerCase().replace(/\s+/g, '');
-            return cleanAuthor.includes(needle);
-          }).map((rev: any) => ({ ...rev, _foundOnPage: p }));
-
-          accumulatedMatches.push(...matches);
-          hasMore = data.hasMorePages === true;
-          
-          if (!hasMore) {
-            break;
-          }
-
-          // Small delay to behave nicely
-          await new Promise(resolve => setTimeout(resolve, 350));
+        if (data.error) {
+          showToast(data.error, 'error');
+          setLoading(false);
+          setScanProgress(null);
+          return;
         }
 
-        setReviews(accumulatedMatches);
-        setProductName(currentProdName || 'Product Reviews');
+        const matchedReviews = data.reviews || [];
+        setReviews(matchedReviews);
+        setProductName(data.productName || 'Product Reviews');
         setHasResults(true);
         setHasNextPage(false);
-        showToast(`Found ${accumulatedMatches.length} matching reviews!`, 'success');
+
+        const pagesInfo = data.pagesScanned ? ` across ${data.pagesScanned} pages` : '';
+        showToast(`Found ${matchedReviews.length} matching review${matchedReviews.length !== 1 ? 's' : ''}${pagesInfo}!`, 'success');
 
       } catch (err: any) {
-        showToast('Failed to fetch reviews: ' + err.message, 'error');
+        showToast('Failed to search reviews: ' + err.message, 'error');
       } finally {
         setLoading(false);
         setScanProgress(null);

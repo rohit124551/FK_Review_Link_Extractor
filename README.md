@@ -175,7 +175,8 @@ Reviews are displayed as beautiful glass-morphism cards showing the rating, full
 | **Styling** | Tailwind CSS 4 | Utility-first CSS with custom design tokens |
 | **Icons** | Lucide React | Consistent, lightweight SVG icon set |
 | **Theme** | next-themes | System/dark/light mode switching |
-| **Backend** | Express.js 4 | Lightweight Node.js API server |
+| **Backend (Local)** | Express.js 4 | Lightweight Node.js API server for local development |
+| **Backend (Production)** | Cloudflare Workers | Edge-deployed serverless backend (`worker.js`) |
 | **HTTP Client** | node-fetch 2 | Server-side HTTP requests to Flipkart's API |
 | **Environment** | dotenv | Secure loading of secrets from `.env` files |
 | **Webhooks** | Discord Webhooks API | Forwarding user feedback as structured embeds |
@@ -207,8 +208,9 @@ FK_Review_Link_Extractor/
 │   ├── eslint.config.mjs            # ESLint rules
 │   └── package.json                 # Frontend dependencies & scripts
 │
-├── server/                          # ── Express.js Backend ──
-│   ├── server.js                    # API endpoints & Flipkart data parsing
+├── server/                          # ── Backend ──
+│   ├── server.js                    # Express.js server (local development)
+│   ├── worker.js                    # Cloudflare Worker (production deployment)
 │   ├── server2.js                   # Alternate/experimental server version
 │   ├── public/
 │   │   └── index.html               # Fallback static page
@@ -454,6 +456,7 @@ The application uses a carefully curated **Slate + Amber** color palette:
 | `cd client && npm run dev` | Start only the frontend (Next.js dev server) |
 | `cd client && npm run build` | Create a production build of the frontend |
 | `cd server && node server.js` | Start only the backend (Express server) |
+| `npx wrangler dev server/worker.js` | Run worker.js locally via Cloudflare Wrangler |
 
 ---
 
