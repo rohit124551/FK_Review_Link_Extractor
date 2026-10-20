@@ -21,6 +21,64 @@ const PORT = 3001;
 
 app.use(express.json({ limit: '1mb' }));
 
+// Allowed CORS Origins Whitelist
+const ALLOWED_ORIGINS = [
+  'https://fk-review.pages.dev',
+  'https://deal.afdeal.in',
+];
+
+function isOriginAllowed(origin) {
+  if (!origin) return true;
+  const clean = origin.trim().replace(/\/+$/, '');
+  if (ALLOWED_ORIGINS.includes(clean)) return true;
+  if (/^https?:\/\/localhost(:\d+)?$/.test(clean) || /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(clean)) {
+    return true;
+  }
+  return false;
+}
+
+// ─── CORS Middleware ──────────────────────────────────────────
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  if (origin && !isOriginAllowed(origin)) {
+    return res.status(403).json({
+      error: 'Forbidden',
+      message: 'Access Denied: CORS origin not allowed',
+      origin,
+      allowed: ALLOWED_ORIGINS.concat(['http://localhost:*']),
+    });
+  }
+
+  if (origin && isOriginAllowed(origin)) {
+    res.header('Access-Control-Allow-Origin', origin.trim().replace(/\/+$/, ''));
+    res.header('Vary', 'Origin');
+  }
+
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  res.header('Access-Control-Max-Age', '86400');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+// ─── Health & Config Status Check ─────────────────────────────
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    online: true,
+    timestamp: new Date().toISOString(),
+    env: {
+      fkLogWebhookConfigured: Boolean(process.env.FK_LOG_WEBHOOK_URL || process.env.DISCORD_WEBHOOK_URL),
+      fkBugWebhookConfigured: Boolean(process.env.FK_BUG_WEBHOOK_URL || process.env.DISCORD_BUG_WEBHOOK_URL),
+      flipkartCookiesConfigured: Boolean(process.env.FLIPKART_COOKIES),
+    },
+  });
+});
+
 // ─── Constants ────────────────────────────────────────────────
 const COOKIE_FILE   = path.join(__dirname, 'cookies.txt');
 const FLIPKART_BASE = 'https://www.flipkart.com';
@@ -59,15 +117,10 @@ app.post('/api/reviews', async (req, res) => {
     return res.json({ error: 'Page must be a positive integer' });
   }
 
-  const cookies = loadCookies();
-  if (!cookies) {
-    return res.json({ error: 'No cookies saved. Please add cookies first.' });
-  }
-
   console.log(`\n🔵 GET REVIEWS  page=${pageNum}  sort=${sortOrder}`);
 
   try {
-    const parsed = await fetchReviewPage(pageUri, pageNum, sortOrder, cookies);
+    const parsed = await fetchReviewPage(pageUri, pageNum, sortOrder);
 
     if (parsed.error) {
       return res.json(parsed);
@@ -103,9 +156,6 @@ app.post('/api/search-by-name', async (req, res) => {
   if (!pageUri)         return res.json({ error: 'Missing pageUri' });
   if (!name?.trim())    return res.json({ error: 'Missing reviewer name' });
 
-  const cookies = loadCookies();
-  if (!cookies) return res.json({ error: 'No cookies saved' });
-
   const scanMax = Math.min(MAX_SCAN_PAGES, Math.max(1, parseInt(maxPages) || MAX_SCAN_PAGES));
   const needle  = name.trim().toLowerCase();
 
@@ -119,7 +169,7 @@ app.post('/api/search-by-name', async (req, res) => {
   for (let page = 1; page <= scanMax; page++) {
     let parsed;
     try {
-      parsed = await fetchReviewPage(pageUri, page, sortOrder, cookies);
+      parsed = await fetchReviewPage(pageUri, page, sortOrder);
     } catch (err) {
       console.log(`   ❌ Page ${page} error:`, err.message);
       stoppedReason = err.message;
@@ -181,7 +231,7 @@ app.post('/api/search-by-name', async (req, res) => {
 // Returns: { reviews, productName, hasMorePages, apiSortOrder } | { error }
 // ═══════════════════════════════════════════════════════════════
 
-async function fetchReviewPage(pageUri, page, sortOrder, cookies) {
+async function fetchReviewPage(pageUri, page, sortOrder) {
   const uri = buildPageUri(pageUri, page, sortOrder);
 
   const payload = {
@@ -195,7 +245,7 @@ async function fetchReviewPage(pageUri, page, sortOrder, cookies) {
 
   const response = await fetch(API_URL, {
     method:  'POST',
-    headers: buildApiHeaders(cookies),
+    headers: buildApiHeaders(),
     body:    JSON.stringify(payload),
   });
 
@@ -203,9 +253,7 @@ async function fetchReviewPage(pageUri, page, sortOrder, cookies) {
     const errText = await response.text();
     return {
       error: `Flipkart API returned ${response.status}`,
-      hint:  response.status === 401
-        ? 'Cookies expired! Please refresh cookies.'
-        : errText.slice(0, 200),
+      hint:  errText.slice(0, 200),
     };
   }
 
@@ -286,6 +334,29 @@ function buildReview(v) {
     }
   }
 
+  // Extract photos / images uploaded by buyer
+  const images = [];
+  const rawImages = [...(v?.images || []), ...(v?.media || [])];
+  for (const item of rawImages) {
+    const rawUrl =
+      item?.value?.imageURL ||
+      item?.imageURL ||
+      item?.value?.url ||
+      item?.url ||
+      item?.dynamicImageUrl ||
+      item?.value?.dynamicImageUrl ||
+      (typeof item === 'string' ? item : null);
+    if (rawUrl && typeof rawUrl === 'string') {
+      const fullUrl = rawUrl
+        .replace('{@width}', '800')
+        .replace('{@height}', '800')
+        .replace('{@quality}', '80');
+      if (!images.includes(fullUrl)) {
+        images.push(fullUrl);
+      }
+    }
+  }
+
   return {
     id:             v?.id || null,
     title:          v?.title || null,
@@ -297,6 +368,7 @@ function buildReview(v) {
     location:       location || null,
     helpfulCount:   v?.helpfulCount || 0,
     attributes:     attrs,
+    images,
     permalink:      v?.url ? FLIPKART_BASE + v.url : null,
   };
 }
@@ -340,20 +412,14 @@ function buildPageUri(pageUri, page, sortOrder) {
   return `${uri}${sep}page=${page}&sortOrder=${sortOrder}`;
 }
 
-/** Load cookies from .env */
-function loadCookies() {
-  return process.env.FLIPKART_COOKIES || null;
-}
-
 /** Headers for Flipkart API call */
-function buildApiHeaders(cookies) {
+function buildApiHeaders() {
   return {
     'Accept':            '*/*',
     'Accept-Encoding':   'gzip, deflate, br, zstd',
     'Accept-Language':   'en-US,en;q=0.9',
     'Connection':        'keep-alive',
     'Content-Type':      'application/json',
-    'Cookie':            cookies,
     'Host':              '2.rome.api.flipkart.com',
     'Origin':            'https://www.flipkart.com',
     'Referer':           'https://www.flipkart.com/',
