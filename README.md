@@ -1,10 +1,11 @@
-# ⭐ ReviewLens — Flipkart Review Link Extractor
+# 🛒 Flipkart Review Finder (FK Review Finder)
 
-**ReviewLens** is a full-stack web application built to solve one specific problem: **extracting individual review links from Flipkart products**, which became impossible after Flipkart's recent UI update.
+A production-grade, full-stack review extraction, search, and discovery platform for Flipkart. Extract direct review permalinks, search reviews by reviewer author name across multiple pages, filter verified buyer feedback, inspect reviewer photos, filter loaded reviews locally in real time, and stream diagnostic telemetry to Discord channels.
 
-> **The Problem:** Flipkart recently redesigned their product review pages. In the new UI, there is no way to right-click or copy the direct link to an individual review. The "Share" button was removed, permalink URLs are no longer visible in the browser, and the review section loads dynamically — making it impossible to grab a direct link to a specific review.
->
-> **The Solution:** ReviewLens calls Flipkart's own internal API (the same one their website uses behind the scenes) to fetch the raw review data. It then reconstructs the **direct permalink URL** for every single review, which you can copy with one click. Along with the link, it also extracts the full review details — rating, reviewer name, review text, location, date, and more.
+[![Next.js](https://img.shields.io/badge/Frontend-Next.js%2016-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Cloudflare Workers](https://img.shields.io/badge/Backend-Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflareworkers)](https://workers.cloudflare.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS%204-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-FFE11B?style=for-the-badge&labelColor=0D0F12)](LICENSE)
 
 ---
 
@@ -14,17 +15,19 @@
 - [What Does This Project Do?](#-what-does-this-project-do)
 - [Who Is This For?](#-who-is-this-for)
 - [How It Works (Step by Step)](#-how-it-works-step-by-step)
-- [Features](#-features)
-- [Tech Stack](#️-tech-stack)
+- [Key Features](#-key-features)
+- [Architecture & Tech Stack](#️-architecture--tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
+- [Cloudflare Worker Backend](#-cloudflare-worker-backend)
 - [Environment Variables](#-environment-variables)
-- [API Endpoints](#-api-endpoints)
+- [API Reference](#-api-reference)
 - [Keyboard Shortcuts](#️-keyboard-shortcuts)
+- [Incident & Bug Tracking Pipeline](#-incident--bug-tracking-pipeline)
+- [SEO & OpenGraph Optimization](#-seo--opengraph-optimization)
 - [Design System](#-design-system)
-- [Contributing](#-contributing)
+- [Author & Support](#-author--support)
 - [License](#-license)
-- [Author](#-author)
 
 ---
 
@@ -43,17 +46,19 @@ Before Flipkart's UI update, extracting a direct link to a specific review was s
 | **Share button** | Available on some reviews | Completely removed |
 | **Review page structure** | Standard HTML pages with proper URLs | JavaScript-rendered dynamic content with no unique URLs |
 
-This means if you need a direct link to someone's review — for example, to report a fake review, to reference a review in a dispute, to share a helpful review with someone, or to document a customer's feedback — **you simply cannot get it from Flipkart's website anymore**.
+This means if you need a direct link to someone's review — for example, to report a fake review, to reference a review in a dispute, to share a helpful review with someone, or to document customer feedback — **you simply cannot get it from Flipkart's website anymore**.
 
-### The Solution: ReviewLens
+### The Solution: Flipkart Review Finder
 
-ReviewLens bypasses Flipkart's frontend entirely. Instead of relying on what's visible in the browser, it calls Flipkart's **internal API** (the same backend API that Flipkart's own website calls behind the scenes to load reviews). From the raw API response, ReviewLens:
+Flipkart Review Finder bypasses Flipkart's frontend entirely. Instead of relying on what's visible in the browser, it calls Flipkart's **internal Rome API** (the same backend API that Flipkart's own mobile app and website call behind the scenes). From the raw API response, Flipkart Review Finder:
 
-1. **Extracts every review** with its full data (rating, title, text, author, location, date, verified buyer status, helpfulness count).
-2. **Reconstructs the direct permalink URL** for each review — the same URL that Flipkart's old UI used to show but no longer does.
+1. **Extracts every review** with its full data (rating, title, text, author, location, date, verified buyer status, helpfulness count, and customer-uploaded photos).
+2. **Reconstructs the direct permalink URL** for each review — the exact URL that links straight to that specific review on Flipkart.
 3. **Lets you copy that link** with a single click.
-4. **Lets you search by reviewer name** across multiple pages — so you can find a specific person's review even if it's buried on page 5.
-5. **Lets you export everything** as CSV (Excel) or Print/Save as PDF.
+4. **Lets you search by reviewer name** across multiple pages — so you can find a specific person's review even if it's buried on page 5 or 8.
+5. **In-Results Search & Filter Bar** — search loaded reviews locally for keywords (`"battery"`, `"camera"`, `"fake"`) with live yellow text highlighting, star ratings (`1★`–`5★`), and photo filters.
+6. **Save Individual Reviews & Search Links** — 1-click bookmarking of particular reviews and search links directly into an offline Saved Drawer.
+7. **Clean CSV Export** — download formatted, Excel-compatible review dossiers.
 
 ---
 
@@ -61,9 +66,9 @@ ReviewLens bypasses Flipkart's frontend entirely. Instead of relying on what's v
 
 In simple terms:
 
-> You paste a Flipkart product link → ReviewLens fetches all the reviews for that product → You can browse them, search for a specific reviewer by name, sort them, **copy the direct link to any individual review**, and download the data as CSV or print/save to PDF.
+> **You paste a Flipkart product link → Flipkart Review Finder fetches all reviews for that product → You can search, filter, bookmark, copy direct review permalinks, and export everything to CSV.**
 
-Flipkart does not provide a public API to access product reviews. ReviewLens uses your authenticated Flipkart session cookies to call Flipkart's internal review API (the same one their website uses behind the scenes). The application then parses the raw API response and presents the review data in a clean, searchable, and exportable interface — most importantly, with **clickable permalink URLs** that Flipkart's new UI no longer shows.
+Flipkart does not provide a public developer API for reviews. Flipkart Review Finder utilizes Flipkart's internal Rome API endpoints to parse raw JSON widgets and reconstruct **clickable permalink URLs** that Flipkart's new UI no longer shows.
 
 ### What Data Does It Extract?
 
@@ -71,422 +76,410 @@ For each review, the app extracts and displays:
 
 | Field | Description |
 |---|---|
-| ⭐ **Rating** | Star rating (1–5) with visual star display |
+| ⭐ **Rating** | Star rating (1–5) with high-contrast badge display |
 | 📝 **Title** | Review headline written by the reviewer |
-| 💬 **Full Text** | Complete review body (expandable for long reviews) |
+| 💬 **Full Text** | Complete review body (with real-time keyword highlighting) |
 | 👤 **Author Name** | Reviewer's display name |
 | 📍 **Location** | City and state of the reviewer |
-| 📅 **Date** | When the review was posted |
-| ✅ **Verified Buyer** | Whether the reviewer is a certified/verified buyer |
-| 👍 **Helpful Count** | Number of people who found the review helpful |
-| 🔗 **Permalink** | **Direct URL to the individual review on Flipkart** ← This is the main feature |
-| 🏷️ **Product Attributes** | Color, storage, and other variant details (excluding size) |
+| 📅 **Date** | When the review was posted (e.g. "Today", "2 months ago") |
+| ✅ **Verified Buyer** | Certified buyer verification badge |
+| 👍 **Helpful Votes** | Upvotes and helpful count from other buyers |
+| 📷 **Buyer Photos** | High-resolution customer uploaded images with interactive lightbox preview |
+| 🔗 **Permalink** | **Direct URL straight to the individual review on Flipkart** ← Primary feature |
+| 🏷️ **Product Attributes** | Color, storage, and variant details (excluding size) |
 
 ---
 
 ## 👥 Who Is This For?
 
-- **Anyone who needs a direct link to a Flipkart review** — The primary use case. If Flipkart's new UI is hiding the review link from you, this app gets it for you.
-- **Sellers & Brands** — Monitor customer feedback, track specific reviews, and get direct links to reviews you want to respond to or report.
-- **Buyers filing complaints** — Need to reference a specific fake or misleading review in a dispute? Get the exact link.
-- **Market Researchers** — Collect and analyze review sentiment across products with CSV and PDF exports.
-- **Quality Assurance Teams** — Track negative reviews and document them with direct links.
-- **Developers & Analysts** — Use the extracted review data for sentiment dashboards, offline auditing, or integrations.
+- **Anyone who needs a direct link to a Flipkart review** — The primary use case. If Flipkart's new UI hides the review link, this app reconstructs it for you.
+- **Sellers & Brand Owners** — Monitor customer feedback, track specific critical reviews, and get direct permalinks to reviews you want to respond to or report.
+- **Buyers Filing Complaints or Disputes** — Need to reference a specific misleading or damaged-goods review in a dispute? Copy the exact link.
+- **Market Researchers & Data Analysts** — Collect, filter, and analyze customer sentiment across product categories with structured CSV exports.
+- **Quality Assurance & Support Teams** — Track negative reviews, link them to internal bug tickets, and document them with permanent links.
 
 ---
 
 ## 🚶 How It Works (Step by Step)
 
 ### Step 1: Paste a Flipkart URL
-Copy any Flipkart product link from your browser and paste it into the sidebar input field. The app accepts three types of links:
+Copy any Flipkart product or review link from your browser or mobile app and paste it into the search panel. The app automatically recognizes and normalizes:
 
 | Link Type | Example | What Happens |
 |---|---|---|
-| **Product Page** (`/p/`) | `flipkart.com/product-name/p/itm...?pid=...&lid=...` | Auto-converted to a review page URL |
-| **Review Page** (`/product-reviews/`) | `flipkart.com/.../product-reviews/itm...?pid=...&lid=...` | Used directly |
-| **Share / DL Link** | `dl.flipkart.com/dl/product-name/p/itm...?pid=...&lid=...` | Domain converted to `www.flipkart.com` and then processed |
+| **Product Page** (`/p/`) | `flipkart.com/product-name/p/itm...?pid=...` | Automatically converted to a clean review page URI |
+| **Review Page** (`/product-reviews/`) | `flipkart.com/.../product-reviews/itm...?pid=...` | Used directly with proper page and sort parameters |
+| **Share / DL Link** | `dl.flipkart.com/dl/product-name/p/itm...?pid=...` | Normalized into standard web format |
 
-The URL **must** contain both `pid` (product ID) and `lid` (listing ID) parameters. Shortened links (like bit.ly) are **not** supported.
-
-> The app validates the URL in real time as you type — showing a green checkmark for valid links and a red error message for invalid ones.
+> **Mobile Optimization:** On mobile screens, long URLs are formatted into a clean, compact single-line verification pill (`✓ Valid Flipkart Product Link [PID]`), preventing messy 3–5 line text wrapping.
 
 ### Step 2: Configure & Fetch
-Once the URL is valid, the sidebar unlocks additional controls:
-- **Sort Order** — Choose from Most Recent, Most Helpful, Positive First, or Negative First.
-- **Fetch by Page** — Navigate to a specific page number and fetch its reviews.
-- **Search by Name** — Enter a reviewer's name and the app will automatically scan up to 8 pages of reviews to find all matches (with a live progress counter: "Scanning page 3 of 8…").
+- **Sort Order**: Choose from Most Recent, Most Helpful, Positive First, or Negative First.
+- **Fetch by Page**: Navigate through pages (1 to 10+) to inspect chronologically.
+- **Search by Reviewer Name**: Enter a reviewer's name (e.g. "Rahul", "Priya") and the app will automatically scan up to 8 pages (80+ reviews) to find all matches, ranking exact name matches first.
 
-### Step 3: Browse & Use
-Reviews are displayed as beautiful glass-morphism cards showing the rating, full review text, author info, and a copy-link button. You can:
-- **Expand** long reviews to read the full text.
-- **Copy** the direct permalink to any individual review.
-- **Export** all loaded reviews as CSV (for spreadsheets) or generate a print-ready PDF preview.
-
----
-
-## ✨ Features
-
-### Core Functionality
-- **Single-page review fetching** — Retrieve 10 reviews per page from any Flipkart product.
-- **Multi-page name search** — Automatically scans up to 8 consecutive review pages to find reviews by a specific author name (fuzzy matching, ignores spacing differences).
-- **Real-time URL validation** — Instantly validates pasted URLs and auto-converts product page links to review page links. No button click needed.
-- **Four sort modes** — Most Recent, Most Helpful, Positive First, Negative First.
-- **Page navigation** — Increment/decrement page numbers with visual page counter.
-- **CSV & PDF export** — Download all currently loaded reviews as a CSV (Excel) file, or preview and print/save to PDF format (JSON export has been removed to simplify user options).
-- **Copy review permalink** — One-click copy of the direct Flipkart URL for any individual review.
-- **Local Favorites / Bookmarking** — Star reviews to save them locally (persisted in browser storage). View them in a dedicated tab, export them, or clear them all with a simple confirmation modal.
-- **Search History Popover** — Quickly access recent searches from an interactive clock dropdown next to the URL input, syncs with local storage, and includes individual and bulk clear controls.
-
-### User Interface
-- **Slate + Amber design system** — A carefully curated dark/light color palette using deep slate backgrounds (`#0f172a`, `#1e293b`) and warm amber accents (`#d97706`, `#fbbf24`).
-- **Dark & Light mode** — Automatic system preference detection with manual toggle. Powered by `next-themes`.
-- **Glassmorphism** — Frosted glass cards, overlays, and modal backgrounds.
-- **Micro-animations** — Smooth fade-in-up entrance animations, scale transitions on buttons, progress bar animations on toast notifications.
-- **Responsive layout** — Full two-column layout (sidebar + content) on desktop; stacked single-column on mobile with a collapsible sidebar.
-- **Onboarding guide** — When no reviews are loaded, the app displays a "How It Works" guide, supported link types, URL requirements, and quick tips.
-- **Loading skeleton** — Animated pulse placeholders while reviews are being fetched.
-- **Toast notifications** — Non-blocking success/error toasts with auto-dismiss and animated progress bars.
-
-### Accessibility & UX
-- **Keyboard shortcuts** — 6 global keyboard shortcuts for power users (desktop only).
-- **`aria-pressed`** on sort order toggle buttons for screen reader support.
-- **Focus management** — Keyboard shortcut `/` instantly focuses the URL input field.
-- **Smart shortcut detection** — Shortcuts are automatically disabled when the user is typing in any input, textarea, or select field.
-
-### Issue & Feedback Reporting
-- **Built-in reporting modal** — Users can report extraction issues, request features, or file bug reports directly from the app.
-- **Category-aware forms** — Selecting "Extraction Issue" shows the Flipkart URL field (required); selecting "Feature Request" or "Bug Report" hides it (not needed).
-- **Discord webhook integration** — All reports are forwarded as color-coded embeds to your private Discord channel.
-- **Smart payloads** — Only non-empty fields are sent in the request body and rendered in the Discord embed. No "Not provided" filler text.
-- **Secure routing** — The Discord webhook URL is stored in the backend `.env` and never exposed to the frontend.
-
-### Security
-- **Server-side cookies** — Flipkart session cookies are loaded from `server/.env` via `dotenv`. They never leave the backend.
-- **Server-side webhook** — Discord webhook URL is kept in `server/.env`. The frontend only hits `/api/report-bug`; the backend forwards to Discord.
-- **`.gitignore` protection** — All `.env` files, `node_modules`, and build artifacts are excluded from version control.
+### Step 3: Browse, Filter, Bookmark & Export
+- **Copy Permalink**: One click copies the direct review permalink to your clipboard.
+- **Save Individual Reviews**: Click `SAVE` on any review to pin it to your offline drawer.
+- **Local In-Results Search**: Type into the in-results search bar to filter visible reviews by keywords (e.g. `"battery"`, `"camera"`) with live yellow highlighting.
+- **Quick Rating Filters**: Tap `5★`, `4★`, `3★`, `2★`, `1★`, `📷 Photos`, or `✓ Verified`.
+- **Preview Photos**: Click any customer-uploaded thumbnail to view the full-size image in a lightbox.
+- **Export to CSV**: Download the filtered or full review list as an Excel-compatible CSV file.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Key Features
 
-| Layer | Technology | Purpose |
+### 1. Review Discovery & Extraction
+- **Single-page review fetching (`/api/reviews`)**: Retrieve reviews per page with ratings, authors, location, certified buyer status, and full text.
+- **Multi-page reviewer search (`/api/search-by-name`)**: Scans up to 8 pages (80+ reviews) to locate reviews written by a specific customer name with live progress tracking.
+- **High-Resolution Buyer Photos**: Automatically extracts buyer-uploaded images from `item.value.imageURL` CDN templates, replacing dynamic tags with `800x800` high-res endpoints.
+- **Direct Permalinks**: Instant one-click copy of the exact Flipkart permalink (`https://www.flipkart.com/reviews/...`).
+
+### 2. In-Results Search & Quick Filters
+- **Real-Time Client-Side Filter**: Type keywords into the in-results search bar to filter visible reviews instantly without re-fetching.
+- **Live Text Highlighting**: Highlights search queries in Flipkart yellow (`#FFE11B`) across titles, text, and author names.
+- **1-Tap Filter Chips**: Filter by star rating (`5★` to `1★`), reviews with customer photos, or verified buyers only.
+
+### 3. Individual Review Bookmarking & Saved Archives
+- **Save Reviews Individually**: Dedicated `SAVE` / `SAVED` button on every review card.
+- **3-Tab Saved Drawer (`Alt + S`)**:
+  - `REVIEWS`: Pinned individual reviews with direct Flipkart links and product search restoration.
+  - `LINKS`: Saved product search configurations.
+  - `HISTORY`: Chronological search query history (FIFO capped at 30 items).
+- **100% Private**: Everything is stored locally in the browser (`localStorage`) with a 1-click "Clear All Data" wipe.
+
+### 4. Production Telemetry & Security Hardening
+- **Strict CORS Origin Whitelist**: Restricts backend API access strictly to authorized domains (`https://fk-review.pages.dev`, `https://deal.afdeal.in`, and `localhost`), blocking unauthorized cross-origin requests with `403 Forbidden`.
+- **Edge Rate Limiting**: In-memory sliding window rate limiter (60 requests/minute per IP) with automatic `429 Too Many Requests` mitigation.
+- **Operational Logging Channel (`FK_LOG_WEBHOOK_URL`)**: Real-time Discord embeds streaming endpoint latency, extracted review counts, client IP, and technical failure details.
+- **Bug Reporting Channel (`FK_BUG_WEBHOOK_URL`)**: Forwards user feedback and error reports with auto-linked tracking numbers (`INC-XXXXXX` and `REP-XXXXXX`).
+
+---
+
+## 🛠️ Architecture & Tech Stack
+
+```
+┌─────────────────────────────────┐
+│     Client (Cloudflare Pages)   │
+│       Next.js 16 + React 19     │
+│   Tailwind CSS 4 + TypeScript   │
+└────────────────┬────────────────┘
+                 │ REST / JSON (CORS Whitelisted)
+                 ▼
+┌─────────────────────────────────┐      Discord Webhooks
+│    Cloudflare Worker Backend    ├──────────────────────────► #fk-logs (Telemetry)
+│     (Serverless Edge Node)      ├──────────────────────────► #fk-bugs (Bug Reports)
+└────────────────┬────────────────┘
+                 │ HTTPS (Internal Rome API)
+                 ▼
+┌─────────────────────────────────┐
+│     Flipkart Rome API Nodes     │
+│   (2.rome.api.flipkart.com)     │
+└─────────────────────────────────┘
+```
+
+| Layer | Technology | Details |
 |---|---|---|
-| **Frontend** | Next.js 16 (Turbopack) | React framework with server-side rendering & API rewrites |
-| **UI Library** | React 19 | Component-based UI |
-| **Language** | TypeScript | Type safety across the frontend |
-| **Styling** | Tailwind CSS 4 | Utility-first CSS with custom design tokens |
-| **Icons** | Lucide React | Consistent, lightweight SVG icon set |
-| **Theme** | next-themes | System/dark/light mode switching |
-| **Backend (Local)** | Express.js 4 | Lightweight Node.js API server for local development |
-| **Backend (Production)** | Cloudflare Workers | Edge-deployed serverless backend (`worker.js`) |
-| **HTTP Client** | node-fetch 2 | Server-side HTTP requests to Flipkart's API |
-| **Environment** | dotenv | Secure loading of secrets from `.env` files |
-| **Webhooks** | Discord Webhooks API | Forwarding user feedback as structured embeds |
-| **Dev Tooling** | Concurrently | Running frontend + backend simultaneously |
-| **Linting** | ESLint + eslint-config-next | Code quality and Next.js best practices |
-| **Font** | Inter (Google Fonts) | Modern, clean variable-weight sans-serif |
+| **Frontend Framework** | Next.js 16 (App Router) | Static export (`output: 'export'`) |
+| **UI Components** | React 19 | Modular components with TypeScript strict mode |
+| **Language** | TypeScript | Strict type safety for review models and API envelopes |
+| **Styling** | Tailwind CSS v4 | CSS variables, Swiss Tactical palettes, Cabinet Grotesk + JetBrains Mono |
+| **Icons** | Lucide React | Lightweight, consistent SVG icon set |
+| **Edge Serverless Backend** | Cloudflare Workers | V8 edge worker with zero cold starts, CORS whitelist, and <250ms latency |
+| **Notifications** | Discord Webhooks API | Operational and bug tracking embeds |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-FK_Review_Link_Extractor/
-│
-├── client/                          # ── Next.js 16 Frontend ──
+Fk-scraper/
+├── client/                          # Next.js 16 Static Web App
+│   ├── public/
+│   │   ├── robots.txt               # Production search engine crawler rules
+│   │   └── sitemap.xml              # XML sitemap
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── page.tsx             # Main application (all UI, state, logic)
-│   │   │   ├── layout.tsx           # Root layout, metadata, theme provider
-│   │   │   ├── globals.css          # Design system, animations, glass effects
-│   │   │   └── favicon.ico          # App icon
-│   │   └── components/
-│   │       ├── ThemeProvider.tsx     # next-themes provider wrapper
-│   │       └── ThemeToggle.tsx       # Dark/light mode toggle button
-│   ├── public/                      # Static assets (SVGs)
-│   ├── next.config.ts               # API rewrite proxy (localhost:3000 → 3001)
-│   ├── postcss.config.mjs           # PostCSS + Tailwind config
-│   ├── tsconfig.json                # TypeScript configuration
-│   ├── eslint.config.mjs            # ESLint rules
-│   └── package.json                 # Frontend dependencies & scripts
+│   │   │   ├── layout.tsx           # SEO metadata, OpenGraph, JSON-LD Schema, theme provider
+│   │   │   ├── page.tsx             # Main dashboard, in-results filter bar, review list, mobile footer
+│   │   │   └── globals.css          # Design system, Swiss Tactical tokens, custom fonts
+│   │   ├── components/
+│   │   │   ├── common/              # Header, ReportBugModal, SavedDrawer, ImageModal, LegalModal
+│   │   │   └── finder/              # Hero, SearchPanel, StatusBar, ResultsHeader, ResultsFilterBar, ReviewCard
+│   │   ├── lib/                     # api.ts, normalizer.ts, storage.ts, exportUtils.ts, supportMail.ts, highlight.tsx
+│   │   └── types.ts                 # TypeScript interfaces for reviews, saved items, and payloads
+│   ├── .env.production              # Production API base URL
+│   ├── package.json
+│   └── tsconfig.json
 │
-├── server/                          # ── Backend ──
-│   ├── server.js                    # Express.js server (local development)
-│   ├── worker.js                    # Cloudflare Worker (production deployment)
-│   ├── server2.js                   # Alternate/experimental server version
-│   ├── public/
-│   │   └── index.html               # Fallback static page
-│   ├── .env                         # 🔒 Secrets (NOT committed to git)
-│   ├── package.json                 # Backend dependencies
-│   └── package-lock.json
+├── server/                          # Cloudflare Worker Backend & Node.js Server
+│   ├── worker.js                    # Cloudflare Worker (copy-pasteable into Cloudflare dashboard)
+│   ├── server.js                    # Local Express.js server
+│   ├── .env.example                 # Example environment variables template
+│   └── package.json
 │
-├── .gitignore                       # Excludes .env, node_modules, .next, etc.
-├── package.json                     # Root scripts (concurrently)
-├── package-lock.json
-└── README.md                        # This file
+├── README.md                        # Comprehensive documentation & setup guide
+└── LICENSE                          # MIT License
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 1. Frontend Development
 
-| Requirement | Version |
-|---|---|
-| Node.js | v18 or higher |
-| npm | v9 or higher |
-| Flipkart Account | Needed to obtain session cookies |
-| Discord Server | Optional — only needed for issue reporting webhooks |
-
-### 1. Clone the Repository
+Navigate to the `client/` directory and install dependencies:
 
 ```bash
-git clone https://github.com/rohit124551/FK_Review_Link_Extractor.git
-cd FK_Review_Link_Extractor
-```
-
-### 2. Install All Dependencies
-
-```bash
-# One command to install everything (root + client + server)
-npm run install:all
-```
-
-Or manually:
-```bash
-npm install                    # Root (concurrently)
-cd client && npm install       # Frontend
-cd ../server && npm install    # Backend
-cd ..
-```
-
-### 3. Configure Environment Variables
-
-Create a file named `.env` inside the `server/` directory:
-
-```env
-FLIPKART_COOKIES="your_flipkart_session_cookies_here"
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_id/your_token
-```
-
-> See [Environment Variables](#-environment-variables) below for detailed instructions on how to obtain these values.
-
-### 4. Start the Application
-
-```bash
+cd client
+npm install
 npm run dev
 ```
 
-This starts both services simultaneously:
-- **Frontend** → [http://localhost:3000](http://localhost:3000) (Next.js dev server)
-- **Backend** → [http://localhost:3001](http://localhost:3001) (Express API server)
+The frontend will run at [http://localhost:3000](http://localhost:3000).
 
-The frontend automatically proxies all `/api/*` requests to the backend via Next.js rewrites configured in `next.config.ts`.
+To build the static production export:
+```bash
+npm run build
+```
+Compiled output will be placed in `client/out/` ready for Cloudflare Pages or any static host.
+
+---
+
+### 2. Backend Local Development
+
+To run the local Node.js Express server:
+
+```bash
+cd server
+npm install
+node server.js
+```
+The local server runs at [http://localhost:3001](http://localhost:3001).
+
+---
+
+## ⚡ Cloudflare Worker Backend
+
+The production backend runs on **Cloudflare Workers** using [server/worker.js](server/worker.js).
+
+### Features
+- **Zero-Cold-Start Edge Execution**: Runs on Cloudflare's global edge network.
+- **Strict CORS Origin Whitelist**: Only authorized domains and localhost can access the API.
+- **Rate Limit Protection**: In-memory sliding window per IP to prevent API abuse.
+- **Automatic Buyer Image CDN Parsing**: Formats buyer image URLs for high-res delivery.
+
+### Deployment Instructions
+1. Open the **Cloudflare Dashboard** → **Workers & Pages** → **Create Worker**.
+2. Name the worker (e.g. `fk-scraper-backend`).
+3. Copy the entire contents of [server/worker.js](server/worker.js) and paste it into the Cloudflare Worker web editor.
+4. Click **Save and Deploy**.
 
 ---
 
 ## 🔐 Environment Variables
 
-All secrets are stored in `server/.env` and are **never committed to GitHub** (protected by `.gitignore`).
+Configure these variables in your **Cloudflare Worker Dashboard** under **Settings → Variables and Secrets**:
 
-### `FLIPKART_COOKIES` (Required)
+| Variable Name | Required | Description | Example |
+|---|:---:|---|---|
+| **`FK_LOG_WEBHOOK_URL`** | Recommended | Discord webhook for operational telemetry and fetch logs | `https://discord.com/api/webhooks/...` |
+| **`FK_BUG_WEBHOOK_URL`** | Recommended | Discord webhook for user-submitted bug tickets | `https://discord.com/api/webhooks/...` |
+| **`CORS_ORIGINS`** | Optional | Additional allowed CORS origins (comma-separated) | `https://your-domain.com` |
+| **`FLIPKART_COOKIES`** | Optional | Flipkart session cookie string if needed for challenges | `T=...; at=...` |
 
-Your authenticated Flipkart session cookies. These allow the backend to call Flipkart's internal review API on your behalf.
-
-**How to get them:**
-1. Open [flipkart.com](https://www.flipkart.com) in your browser and **log in** to your account.
-2. Open **DevTools** (`F12` or `Ctrl + Shift + I`).
-3. Go to the **Application** tab → **Cookies** → `https://www.flipkart.com`.
-4. Copy all the cookie key-value pairs and format them as a single semicolon-separated string:
-   ```
-   T=TI123...; at=eyJ...; ud=6.1B...; S=d1t1...
-   ```
-5. Paste this string as the value of `FLIPKART_COOKIES` in your `.env` file.
-
-> ⚠️ **Cookies expire periodically.** If you start getting 401 errors, repeat the steps above to refresh them.
-
-### `DISCORD_WEBHOOK_URL` (Optional)
-
-A Discord webhook URL for receiving bug reports and feature requests from users.
-
-**How to get one:**
-1. Open your Discord server → Select a channel (e.g., `#bugs`).
-2. Click the **gear icon** (Edit Channel) → **Integrations** → **Webhooks**.
-3. Click **New Webhook** → Give it a name (e.g., "ReviewLens Reporter").
-4. Click **Copy Webhook URL** and paste it into your `.env`.
-
-> If this variable is not set, reports are simply logged to the server console instead.
+*(Note: In the frontend `client/.env.production`, configure `NEXT_PUBLIC_API_URL` to point to your live backend worker URL).*
 
 ---
 
-## 🔌 API Endpoints
+## 🔌 API Reference
 
-The Express backend exposes the following endpoints (all prefixed with `/api`):
+### 1. `POST /api/reviews`
+Fetches a single page of reviews for a product link.
 
-### `POST /api/reviews`
-Fetches a single page of reviews for a given product.
-
-**Request Body:**
+**Request:**
 ```json
 {
-  "pageUri": "https://www.flipkart.com/.../product-reviews/itm...?pid=...&lid=...",
+  "pageUri": "https://www.flipkart.com/apple-iphone-15-black-128-gb/p/itm6ac6485515ae4?pid=MOBGTAGPTB3VS24W",
   "page": 1,
   "sortOrder": "MOST_RECENT"
 }
 ```
 
-**Response:**
+**Response (HTTP 200):**
 ```json
 {
+  "status": "success",
+  "productName": "Apple iPhone 15 (Black, 128 GB)",
   "reviews": [
     {
-      "id": "review_id",
-      "title": "Great product!",
-      "text": "Full review text...",
+      "id": "1db02447-0b5d-4d35-b839-eb9306551cc9",
+      "title": "Mind-blowing purchase",
+      "text": "Superb display and battery backup.",
       "rating": 5,
-      "author": "Rohit Kumar",
+      "author": "Rahul Sharma",
       "certifiedBuyer": true,
-      "created": "2 days ago",
-      "location": "Delhi, NCT of Delhi",
+      "created": "Today",
+      "location": "Bengaluru, Karnataka",
       "helpfulCount": 12,
-      "attributes": { "Color": "Midnight Black" },
-      "permalink": "https://www.flipkart.com/..."
+      "upvotes": 12,
+      "downvotes": 0,
+      "productAttributes": ["Color: Black", "Storage: 128 GB"],
+      "images": [
+        "https://rukminim1.flixcart.com/blobio/800/800/imr/blobio-imr_...jpg?q=80"
+      ],
+      "permalink": "https://www.flipkart.com/reviews/MOBGTAGPTB3VS24W:819?reviewId=1db02447-..."
     }
   ],
-  "productName": "Samsung Galaxy S24 Ultra",
   "hasMorePages": true,
   "currentPage": 1,
-  "sortOrder": "MOST_RECENT"
+  "totalPages": 25,
+  "cached": false,
+  "latencyMs": 240,
+  "incidentId": null
 }
 ```
-
-**Valid Sort Orders:** `MOST_RECENT`, `MOST_HELPFUL`, `POSITIVE_FIRST`, `NEGATIVE_FIRST`
 
 ---
 
-### `POST /api/search-by-name`
-Scans up to 8 pages of reviews to find all reviews by a specific author name.
+### 2. `POST /api/search-by-name`
+Scans up to 8 pages for a specific reviewer name.
 
-**Request Body:**
+**Request:**
 ```json
 {
-  "pageUri": "https://www.flipkart.com/.../product-reviews/itm...?pid=...&lid=...",
-  "name": "Rohit Kumar",
-  "maxPages": 8,
+  "pageUri": "https://www.flipkart.com/.../p/itm...?pid=...",
+  "name": "Rahul Sharma",
+  "maxPages": 4,
   "sortOrder": "MOST_RECENT"
 }
 ```
 
-**Response:**
+**Response (HTTP 200):**
 ```json
 {
+  "status": "success",
+  "productName": "Apple iPhone 15 (Black, 128 GB)",
   "reviews": [
-    { "...review data...", "_foundOnPage": 3 }
+    {
+      "id": "...",
+      "author": "Rahul Sharma",
+      "rating": 5,
+      "page": 2,
+      "exactMatch": true
+    }
   ],
-  "productName": "Samsung Galaxy S24 Ultra",
-  "pagesScanned": 8,
-  "searchName": "Rohit Kumar",
-  "sortOrder": "MOST_RECENT",
-  "stoppedReason": "completed"
+  "pagesScanned": 2,
+  "maxPages": 4,
+  "partial": false,
+  "failedPages": [],
+  "latencyMs": 680,
+  "incidentId": null
 }
 ```
 
 ---
 
-### `POST /api/report-bug`
-Submits a bug report, feature request, or extraction issue. If `DISCORD_WEBHOOK_URL` is configured, the report is forwarded as a formatted Discord embed.
+### 3. `POST /api/report-bug`
+Submits a bug report or user feedback.
 
-**Request Body:**
+**Request:**
 ```json
 {
-  "type": "Extraction Issue",
-  "url": "https://flipkart.com/...",
-  "issue": "Reviews are not loading for this product",
-  "email": "user@example.com",
-  "mobile": "+91 98765 43210"
+  "message": "Reviews stopped loading on page 3",
+  "incidentId": "INC-542107",
+  "pageUri": "https://www.flipkart.com/...",
+  "contact": "user@example.com"
 }
 ```
 
-> Only `type` and `issue` are required. All other fields are optional and are omitted from the Discord embed if left empty.
+**Response (HTTP 200):**
+```json
+{
+  "ok": true,
+  "reportId": "REP-542107"
+}
+```
 
 ---
 
 ## ⌨️ Keyboard Shortcuts
 
-All shortcuts are **desktop-only** and are automatically disabled when typing in form fields.
+All shortcuts are desktop-optimized and automatically disabled when typing in input fields.
 
 | Shortcut | Action |
 |---|---|
-| `?` | Open / close the keyboard shortcuts guide |
-| `/` or `S` | Focus the URL input field |
-| `Alt` + `B` | Open the Report Issue / Feature Request modal |
-| `Alt` + `T` | Toggle between dark and light theme |
-| `Alt` + `E` | Open the export dropdown (when reviews are loaded) |
-| `Esc` | Close any open modal or overlay |
+| `/` | Focus the product URL search input |
+| `Enter` | Trigger search / fetch reviews from input field |
+| `Alt` + `C` | Export loaded reviews to CSV (Excel) |
+| `Alt` + `S` | Open Saved Archives drawer (Reviews, Links, History) |
+| `Alt` + `B` | Open the Report Bug / Feedback modal |
+| `Alt` + `T` | Toggle between Dark and Light theme |
+| `?` | Open / close Keyboard Shortcuts cheat sheet |
+| `Esc` | Close any active modal, image preview, or drawer |
 
-A **Shortcuts** button is also visible in the header bar on desktop screens for users who prefer clicking.
+---
+
+## 🎯 Incident & Bug Tracking Pipeline
+
+The frontend and backend use a single unified tracking format:
+
+```
+Upstream Failure Encountered
+       │
+       ▼
+Generate Incident ID: INC-542107
+       │
+       ├─► Technical Error Telemetry sent to Discord (#fk-logs)
+       │
+       └─► User opens "Report This" Modal
+             │
+             ▼
+       Derives Bug Report ID: REP-542107 (Sharing the exact tracking number 542107)
+             │
+             ▼
+       Dispatched to Discord (#fk-bugs)
+```
+
+Both engineering and user support share the exact same tracking number across incident logs and bug tickets.
+
+---
+
+## 🔍 SEO & OpenGraph Optimization
+
+The application is pre-configured with SEO best practices:
+- **Canonical URLs**: Configurable canonical `metadataBase`.
+- **Dynamic Meta Tags**: Title templates and keyword descriptions for Flipkart review discovery.
+- **Social Sharing**: OpenGraph and Twitter/X Summary Cards (`summary_large_image`) for WhatsApp, Discord, Twitter, and LinkedIn link previews.
+- **Structured Data (JSON-LD)**: Schema.org `WebApplication` and `WebSite` specifications with integrated `SearchAction` queries.
+- **Discovery**: Pre-rendered `robots.txt` and `sitemap.xml` in `client/public/`.
 
 ---
 
 ## 🎨 Design System
 
-The application uses a carefully curated **Slate + Amber** color palette:
-
-| Token | Light Mode | Dark Mode | Usage |
+| Token | Light Mode | Dark Mode | Description |
 |---|---|---|---|
-| Page Background | `#f8fafc` | `#0f172a` | Main background |
-| Surface | `#f1f5f9` | `#1e293b` | Cards, sidebar |
-| Brand | `#d97706` | `#d97706` | Buttons, accents, focus rings |
-| Brand Hover | `#b45309` | `#b45309` | Button hover states |
-| Brand Tint | `#fef3c7` | `rgba(217,119,6,0.1)` | Subtle highlights |
-| Text Primary | `#0f172a` | `#f8fafc` | Headings, body text |
-| Text Secondary | `#64748b` | `#94a3b8` | Labels, descriptions |
-| Border | `#cbd5e1` | `#334155` | Card borders, dividers |
-| Star Color | `#fbbf24` | `#fbbf24` | Review star ratings |
-
-**Typography:** Inter (Google Fonts) — variable weight from 300 to 800.
+| **Page Background** | `#EDF2F7` | `#0D0F12` | Soft neutral / Deep tactical dark |
+| **Card / Surface** | `#F5F7FA` | `#14171D` | Elevated panels & search containers |
+| **Border** | `#CBD5E1` | `#272D37` | High-contrast container borders |
+| **Brand Accent** | `#2874F0` | `#FFE11B` | Flipkart Blue (Light) / Tactical Yellow (Dark) |
+| **Text Primary** | `#0F172A` | `#F3F4F6` | High readability typography |
+| **Typography** | Plus Jakarta Sans | Cabinet Grotesk (Headings) | JetBrains Mono (Codes & Telemetry) |
 
 ---
 
-## 📋 Available Scripts
+## 👤 Author & Support
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start both frontend and backend concurrently |
-| `npm run install:all` | Install dependencies for root, client, and server |
-| `cd client && npm run dev` | Start only the frontend (Next.js dev server) |
-| `cd client && npm run build` | Create a production build of the frontend |
-| `cd server && node server.js` | Start only the backend (Express server) |
-| `npx wrangler dev server/worker.js` | Run worker.js locally via Cloudflare Wrangler |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-1. **Fork** the repository
-2. **Create** your feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** your changes: `git commit -m 'Add some amazing feature'`
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-5. **Open** a Pull Request
+**Rohit Kumar Ranjan**
+- **Website**: [rohitkumarranjan.in](https://rohitkumarranjan.in)
+- **GitHub**: [@rohit124551](https://github.com/rohit124551)
+- **LinkedIn**: [in/rohitkumarranjan](https://www.linkedin.com/in/rohitkumarranjan)
+- **Email Support**: [developer@rohitkumarranjan.in](mailto:developer@rohitkumarranjan.in)
 
 ---
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
-
-**Rohit Kumar Ranjan**
-- GitHub: [@rohit124551](https://github.com/rohit124551)
-
----
-
-<p align="center">
-  <strong>⭐ ReviewLens</strong> — Built with ❤️ using Next.js + Express
-</p>
+This project is open-source software licensed under the [MIT License](LICENSE).
